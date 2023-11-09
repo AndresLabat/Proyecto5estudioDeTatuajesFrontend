@@ -4,6 +4,6 @@ import "./GetPortfolio.css"
 export const GetPortfolio = () =>{
 
     return (
-        <div>Soy PORTFOLIO</div>
+        <div className="portfolio-page">Soy PORTFOLIO</div>
     )
 }

@@ -4,6 +4,6 @@ import "./Register.css"
 export const Register = () =>{
 
     return (
-        <div>Soy el REGISTER</div>
+        <div className="register-page">Soy el REGISTER</div>
     )
 }

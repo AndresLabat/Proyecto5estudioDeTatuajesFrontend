@@ -4,6 +4,6 @@ import "./GetWorkers.css"
 export const GetWorkers = () =>{
 
     return (
-        <div>Soy WORKERS</div>
+        <div className="workers-page">Soy WORKERS</div>
     )
 }
