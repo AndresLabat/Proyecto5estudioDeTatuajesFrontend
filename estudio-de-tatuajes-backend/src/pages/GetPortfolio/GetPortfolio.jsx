@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
-import "./GetTattoos.css"
+import "./GetPortfolio.css"
 
-export const GetTattoos = () =>{
+export const GetPortfolio = () =>{
 
     return (
         <div>Soy TATTOOS</div>
