@@ -1,6 +1,6 @@
 USUARIO SIN LOGEAR:
 
-   navbar (elemento fijo) => acceso a: Register, login, getWorkers, getTattoos
+   navbar (elemento fijo) => acceso a: home, register, login, getWorkers, getTattoos
 1. Home (div deshabilitado de welcome, se habilita cuando te logeas)
     - imagen principal
     - footer
@@ -37,7 +37,7 @@ USUARIO SIN LOGEAR:
 
 USUARIO LOGEADO:
 
-    navbar (elemento fijo) => acceso a: getWorkers, getTattoos, profile, appointments, logout [boton que te lleva a Home y borra el token]
+    navbar (elemento fijo) => acceso a: home, getWorkers, getTattoos, profile, appointments, logout [boton que te lleva a Home y borra el token]
 7. Profile
     - info user
     - boton para actualizar la info del user (update user profile)
@@ -56,7 +56,7 @@ USUARIO LOGEADO:
 SUPER ADMIN:
 
 Cuando se logea el super admin:
-    navbar (elemento fijo) => acceso a: getWorkers, getTattoos, profile, appointments, create worker, logout [boton que te lleva a Home y borra el token]
+    navbar (elemento fijo) => acceso a: home, getWorkers, getTattoos, profile, appointments, create worker, logout [boton que te lleva a Home y borra el token]
 12. create worker
     - inputs (full_name, email, password, phone_number, image)
 
