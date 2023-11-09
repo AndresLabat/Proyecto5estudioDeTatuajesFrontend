@@ -4,6 +4,6 @@ import "./Home.css"
 export const Home = () =>{
 
     return (
-        <div>Soy el HOME</div>
+        <div className="home-page">Soy el HOME</div>
     )
 }

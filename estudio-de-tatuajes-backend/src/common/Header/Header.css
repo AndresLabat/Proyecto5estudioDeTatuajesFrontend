@@ -1,0 +1,11 @@
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16vh;
+    width: 100vw;
+    display: flex;
+    padding: 0.5em;
+    background-color: aquamarine;
+}

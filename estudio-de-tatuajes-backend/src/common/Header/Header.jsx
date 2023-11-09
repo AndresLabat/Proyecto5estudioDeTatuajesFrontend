@@ -5,7 +5,7 @@ import { LinkButton } from "../LinkButton/LinkButton"
 export const Header = () =>{
 
     return (
-        <div>
+        <div className="buttonContainer">
             <LinkButton 
                 path={"/home"}
                 title={"Home"}

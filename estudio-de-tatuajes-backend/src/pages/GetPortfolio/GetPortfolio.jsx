@@ -4,6 +4,6 @@ import "./GetPortfolio.css"
 export const GetPortfolio = () =>{
 
     return (
-        <div>Soy TATTOOS</div>
+        <div>Soy PORTFOLIO</div>
     )
 }
