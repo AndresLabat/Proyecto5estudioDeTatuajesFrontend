@@ -1,7 +1,7 @@
 import React from "react"
 import "./CustomInput.css"
 
-export const CustomInput = ({design, type, name, placeholder, funcionProp}) =>{
+export const CustomInput = ({design, type, name, placeholder, functionProp}) =>{
 
     return(
         <input 
@@ -9,7 +9,7 @@ export const CustomInput = ({design, type, name, placeholder, funcionProp}) =>{
             type={type}
             name={name}
             placeholder={placeholder}
-            onChange={(e)=>funcionProp(e)}
+            onChange={(e)=>functionProp(e)}
         />
     )
 }
