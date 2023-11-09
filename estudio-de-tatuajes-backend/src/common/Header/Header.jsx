@@ -29,5 +29,3 @@ export const Header = () =>{
         </div>
     )
 }
-
-home, register, login, getWorkers, getTattoos
