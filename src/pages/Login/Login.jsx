@@ -13,6 +13,11 @@ export const Login = () => {
         password: "",
     });
 
+    const [credentialsError, setCredentialsError] = useState({
+        emailError: "",
+        passwordError: "",
+    });
+
     const [message, setMessage] = useState("");
 
     const functionHandler = (e) => {
@@ -22,17 +27,33 @@ export const Login = () => {
         }));
     };
 
+    const errorCheck = (e) => {
+
+        let error = "";
+        error = validator(e.target.name, e.target.value);
+
+        setCredentialsError((prevState) => ({
+            ...prevState,
+            [e.target.name + 'Error']: error,
+        }));
+    }
+
     const logMe = () => {
-        logUser(credentials)
-            .then((response) => {
-                console.log(response.data);
-                const { message } = response.data;
-                setMessage(message);
-                // navigate("/profile");
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        if (credentials.password != "" &&
+            credentials.email != "") {
+            logUser(credentials)
+                .then((response) => {
+                    console.log(response.data);
+                    const { message } = response.data;
+                    setMessage(message);
+                    setTimeout(() => {
+                        navigate("/profile");
+                    }, 2500)
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
     };
 
     return (
@@ -44,19 +65,22 @@ export const Login = () => {
                     name={"email"}
                     placeholder={"user@gmail.com"}
                     functionProp={functionHandler}
+                    functionBlur={errorCheck}
                 />
+                <div className='errorMsg'>{credentialsError.emailError}</div>
                 <CustomInput
                     design={"inputDesign"}
                     type={"password"}
                     name={"password"}
                     placeholder={"Aa1234@"}
                     functionProp={functionHandler}
+                    functionBlur={errorCheck}
                 />
+                <div className='errorMsg'>{credentialsError.passwordError}</div>
 
                 <div className='buttonSubmit' onClick={logMe}>Log in</div>
 
-                {message && <p> {message}</p>}
-
+                <p> {message}</p>
             </div>
         </div>
     )

@@ -35,7 +35,6 @@ export const Register = () => {
     const errorCheck = (e) => {
 
         let error = "";
-
         error = validator(e.target.name, e.target.value);
 
         setCredentialsError((prevState) => ({
@@ -58,7 +57,9 @@ export const Register = () => {
                     console.log(response.data);
                     const { message } = response.data;
                     setMessage(message);
-                    navigate("/login");
+                    setTimeout(() => {
+                        navigate("/login");
+                    }, 2500)
                 })
                 .catch(error => {
                     console.log(error);
@@ -68,7 +69,7 @@ export const Register = () => {
 
     return (
         <div className="register-body">
-
+            
             <div className="input-card">
 
                 <CustomInput
