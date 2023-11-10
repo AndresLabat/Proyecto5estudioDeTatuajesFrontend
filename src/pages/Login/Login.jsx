@@ -3,6 +3,7 @@ import "./Login.css"
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { useNavigate } from "react-router-dom";
 import { logUser } from "../../services/apiCalls";
+import { validator } from "../../services/validators";
 
 export const Login = () => {
 
