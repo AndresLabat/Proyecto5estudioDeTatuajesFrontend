@@ -45,20 +45,25 @@ export const Register = () => {
     }
 
     const SignUp = () => {
-        const credentialsWithNumber = {
-            ...credentials,
-            phone_number: parseInt(credentials.phone_number, 10)
-        };
-        registerUser(credentialsWithNumber)
-            .then((response) => {
-                console.log(response.data);
-                const { message } = response.data;
-                setMessage(message);
-                navigate("/login");
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        if (credentials.full_name != "" &&
+            credentials.password != "" &&
+            credentials.email != "" &&
+            credentials.phone_number != "") {
+            const credentialsWithNumber = {
+                ...credentials,
+                phone_number: parseInt(credentials.phone_number, 10)
+            };
+            registerUser(credentialsWithNumber)
+                .then((response) => {
+                    console.log(response.data);
+                    const { message } = response.data;
+                    setMessage(message);
+                    navigate("/login");
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
     };
 
     return (
@@ -92,7 +97,7 @@ export const Register = () => {
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
-                <div className='errorMsg'>{credentialsError.full_passwordError}</div>
+                <div className='errorMsg'>{credentialsError.passwordError}</div>
                 <CustomInput
                     design={"inputDesign"}
                     type={"number"}
@@ -105,7 +110,7 @@ export const Register = () => {
 
                 <div className='buttonSubmit' onClick={SignUp}>Sign up</div>
 
-                <p> {message}</p>
+                <p>{message}</p>
             </div>
         </div>
     )
