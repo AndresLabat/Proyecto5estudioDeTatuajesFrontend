@@ -3,18 +3,25 @@ import "./Register.css"
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { registerUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+import { validator } from "../../services/validators";
 
 export const Register = () => {
 
     const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({
-         full_name: "",
-         email: "",
-         password: "",
-         phone_number: ""
-         
-       });
+        full_name: "",
+        email: "",
+        password: "",
+        phone_number: ""
+    });
+
+    const [credentialsError, setCredentialsError] = useState({
+        full_nameError: "",
+        emailError: "",
+        passwordError: "",
+        phone_numberError: ""
+    });
 
     const [message, setMessage] = useState("");
 
@@ -24,6 +31,18 @@ export const Register = () => {
             [e.target.name]: e.target.value
         }));
     };
+
+    const errorCheck = (e) => {
+
+        let error = "";
+
+        error = validator(e.target.name, e.target.value);
+
+        setCredentialsError((prevState) => ({
+            ...prevState,
+            [e.target.name + 'Error']: error,
+        }));
+    }
 
     const SignUp = () => {
         const credentialsWithNumber = {
@@ -45,42 +64,49 @@ export const Register = () => {
     return (
         <div className="register-body">
 
-<div className="input-card">
+            <div className="input-card">
 
-            <CustomInput
-                design={"inputDesign"}
-                type={"name"}
-                name={"full_name"}
-                placeholder={"David Ochando"}
-                functionProp={functionHandler}
-            />
-            <CustomInput
-                design={"inputDesign"}
-                type={"mail"}
-                name={"email"}
-                placeholder={"user@gmail.com"}
-                functionProp={functionHandler}
-            />
-            <CustomInput
-                design={"inputDesign"}
-                type={"password"}
-                name={"password"}
-                placeholder={"Aa1234@"}
-                functionProp={functionHandler}
-            />
-            <CustomInput
-                design={"inputDesign"}
-                type={"number"}
-                name={"phone_number"}
-                placeholder={"666666666"}
-                functionProp={functionHandler}
-            />
-           
+                <CustomInput
+                    design={"inputDesign"}
+                    type={"name"}
+                    name={"full_name"}
+                    placeholder={"David Ochando"}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{credentialsError.full_nameError}</div>
+                <CustomInput
+                    design={"inputDesign"}
+                    type={"mail"}
+                    name={"email"}
+                    placeholder={"user@gmail.com"}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{credentialsError.emailError}</div>
+                <CustomInput
+                    design={"inputDesign"}
+                    type={"password"}
+                    name={"password"}
+                    placeholder={"Aa1234@"}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{credentialsError.full_passwordError}</div>
+                <CustomInput
+                    design={"inputDesign"}
+                    type={"number"}
+                    name={"phone_number"}
+                    placeholder={"666666666"}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{credentialsError.phone_numberError}</div>
 
-            <div className='buttonSubmit' onClick={SignUp}>Sign up</div>
+                <div className='buttonSubmit' onClick={SignUp}>Sign up</div>
 
-            {message && <p> {message}</p>}
-        </div>
+                <p> {message}</p>
+            </div>
         </div>
     )
 }
