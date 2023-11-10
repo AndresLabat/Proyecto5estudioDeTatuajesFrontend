@@ -1,0 +1,39 @@
+.login-body{
+    height: 84vh;
+    width: 100vw;
+    background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-card{
+    background-color: gray;
+    margin: 2em;
+    padding: 2em;
+    border: 0.2em solid black;
+    border-radius: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttonSubmit{
+    width: 5em;
+    height: 3em;
+    border: 0.2em solid black;
+    background-color: gray;
+    color: black;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+
+.buttonSubmit:active{
+  transform: scale(0.9);
+}
+
