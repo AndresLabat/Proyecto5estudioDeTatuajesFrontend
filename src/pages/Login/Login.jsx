@@ -44,11 +44,11 @@ export const Login = () => {
             credentials.email != "") {
             logUser(credentials)
                 .then((response) => {
-                    console.log(response.data);
-                    const { message } = response.data;
+                    const { message, token } = response.data;
                     setMessage(message);
                     if (message == "user logged succesfully") {
                         setTimeout(() => {
+                            localStorage.setItem("token", token)
                             navigate("/profile");
                         }, 2500)
                     }

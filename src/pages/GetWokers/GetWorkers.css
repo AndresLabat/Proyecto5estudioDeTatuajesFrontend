@@ -1,8 +1,13 @@
 .workers-body{
     height: 84vh;
     width: 100vw;
-    background-color: aqua;
+    background-color: white;
 
     display: flex;
     justify-content: center;
+}
+
+.card-worker{
+    display: flex;
+    flex-wrap: wrap;
 }

@@ -7,7 +7,7 @@ export const Header = () => {
      return (
          <div className='buttom-container'>
             <LinkButton
-                path={"/home"}
+                path={"/"}
                 title={"Home"}
             />
             <LinkButton
@@ -25,6 +25,10 @@ export const Header = () => {
                <LinkButton
                 path={"/portfolio"}
                 title={"Portfolio"}
+            />
+               <LinkButton
+                path={"/profile"}
+                title={"Profile"}
             />
          </div>
      )
