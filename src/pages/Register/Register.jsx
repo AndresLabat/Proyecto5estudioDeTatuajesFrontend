@@ -13,14 +13,16 @@ export const Register = () => {
         full_name: "",
         email: "",
         password: "",
-        phone_number: ""
+        phone_number: "",
+        photo: ""
     });
 
     const [credentialsError, setCredentialsError] = useState({
         full_nameError: "",
         emailError: "",
         passwordError: "",
-        phone_numberError: ""
+        phone_numberError: "",
+        photoError: ""
     });
 
     const [message, setMessage] = useState("");
@@ -43,6 +45,8 @@ export const Register = () => {
         }));
     }
 
+    const photoDefault = (photo) => (photo === "" ? undefined : photo);
+
     const SignUp = () => {
         if (credentials.full_name != "" &&
             credentials.password != "" &&
@@ -50,7 +54,8 @@ export const Register = () => {
             credentials.phone_number != "") {
             const credentialsWithNumber = {
                 ...credentials,
-                phone_number: parseInt(credentials.phone_number, 10)
+                phone_number: parseInt(credentials.phone_number, 10),
+                photo: photoDefault(credentials.photo)
             };
             registerUser(credentialsWithNumber)
                 .then((response) => {
@@ -69,7 +74,7 @@ export const Register = () => {
 
     return (
         <div className="register-body">
-            
+
             <div className="input-card">
 
                 <CustomInput
@@ -108,6 +113,15 @@ export const Register = () => {
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{credentialsError.phone_numberError}</div>
+                <CustomInput
+                    design={"inputDesign"}
+                    type={"text"}
+                    name={"photo"}
+                    placeholder={"URL photo"}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{credentialsError.photoError}</div>
 
                 <div className='buttonSubmit' onClick={SignUp}>Sign up</div>
 

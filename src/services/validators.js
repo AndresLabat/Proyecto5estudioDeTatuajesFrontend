@@ -21,6 +21,7 @@ export const validator = (type, value) => {
 
         case `name`:
         case `surname`:
+        case `full_name`:
 
             if (!value) {
                 return `You must insert a ${type}`
@@ -28,6 +29,16 @@ export const validator = (type, value) => {
                 return `Incorrect ${type}, it should only contain strings`
             } else if (value.length > 50) {
                 return `${type} is too long, max 50 characters`
+            } else {
+                return ``
+            }
+
+        case `photo`:
+
+            if (typeof (value) !== `string`) {
+                return `Incorrect ${type}, it should only contain strings`
+            } else if (value.length > 200) {
+                return `${type} is too long, max 200 characters`
             } else {
                 return ``
             }
