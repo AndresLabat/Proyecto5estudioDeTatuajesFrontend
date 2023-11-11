@@ -27,7 +27,7 @@ export const GetWorkers = () => {
                             workers.map(worker => {
                                 return (
                                     <CardUser
-                                        key={worker.id}
+                                        workerId={worker.id}
                                         full_name={worker.full_name}
                                         photo={worker.photo}
                                         email={worker.email}

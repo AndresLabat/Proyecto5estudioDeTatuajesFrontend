@@ -1,9 +1,9 @@
 import React from "react";
 import "./CardUser.css";
 
-export const CardUser = ({ full_name, photo, email, phone_number }) => {
+export const CardUser = ({ full_name, photo, email, phone_number, workerId}) => {
     return (
-        <div className="card">
+        <div className="card" key={workerId}>
             <div className="name">{full_name}</div>
             <img className="photo" src={photo} alt={full_name} />
             <div className="email">{email}</div>

@@ -27,3 +27,11 @@ export const updateUser = (body, token) => {
     },
   });
 };
+
+export const appointmentsUser = (token) => {
+  return axios.get("http://localhost:4000/appointment/byUser?skip=12&page=1", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

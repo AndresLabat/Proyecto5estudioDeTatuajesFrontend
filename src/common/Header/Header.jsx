@@ -36,6 +36,11 @@ export const Header = () => {
                 path={"/profile"}
                 title={"Profile"}
             />
+            <LinkButton
+                classButton={"linkButtonDesign"}
+                path={"/appointments"}
+                title={"Appointments"}
+            />
         </div>
     )
 }
