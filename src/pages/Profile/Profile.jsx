@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { profileUser } from "../../services/apiCalls";
+import { LinkButton } from "../../common/LinkButton/LinkButton";
 
 export const Profile = () => {
     const [user, setUser] = useState({
@@ -12,8 +13,6 @@ export const Profile = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        console.log(token)
-
         profileUser(token)
             .then((response) => {
                 setUser(response.data.data);
@@ -28,11 +27,22 @@ export const Profile = () => {
                     ? (
                         <div className="div-photo">
                             <img src={user.photo} alt="User" />
-                            <h2>Welcome, {user.full_name}!</h2>
+                            <div>Name: {user.full_name}</div>
+                            <div>Email: {user.email}</div>
+                            <div>Phone number: {user.phone_number}</div>
+                            <div className='update-container'>
+                                <LinkButton
+                                    classButton={"pruebaButtom"}
+                                    path={"/updateProfile"}
+                                    title={"Update"}
+                                />
+                            </div>
                         </div>
-                    ) : (
+                    )
+                    : (
                         <div>Loading...</div>
-                    )}
+                    )
+            }
         </div>
     );
 };

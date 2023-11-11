@@ -1,35 +1,41 @@
 import React from 'react'
 import './Header.css'
-import { LinkButton } from '../LinkButtom/LinkButtom'
+import { LinkButton } from '../LinkButton/LinkButton'
 
 export const Header = () => {
 
-     return (
-         <div className='buttom-container'>
+    return (
+        <div className='button-container'>
             <LinkButton
+                classButton={"linkButtonDesign"}
                 path={"/"}
                 title={"Home"}
             />
             <LinkButton
+                classButton={"linkButtonDesign"}
                 path={"/login"}
                 title={"Login"}
             />
             <LinkButton
+                classButton={"linkButtonDesign"}
                 path={"/register"}
                 title={"Register"}
             />
-             <LinkButton
+            <LinkButton
+                classButton={"linkButtonDesign"}
                 path={"/workers"}
                 title={"Workers"}
             />
-               <LinkButton
+            <LinkButton
+                classButton={"linkButtonDesign"}
                 path={"/portfolio"}
                 title={"Portfolio"}
             />
-               <LinkButton
+            <LinkButton
+                classButton={"linkButtonDesign"}
                 path={"/profile"}
                 title={"Profile"}
             />
-         </div>
-     )
+        </div>
+    )
 }

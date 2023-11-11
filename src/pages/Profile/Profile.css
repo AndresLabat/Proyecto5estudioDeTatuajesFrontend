@@ -10,3 +10,20 @@
 .div-photo img{
     width: 14em;
 }
+
+.update-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; 
+}
+
+.pruebaButtom{
+    width: 5em;
+    height: 2em;
+    background-color: lightblue;
+    border: 0.2em solid black;
+    border-radius: 0.7em;
+    color: black; 
+}
