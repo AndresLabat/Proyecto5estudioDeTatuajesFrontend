@@ -19,3 +19,11 @@ export const profileUser = (token) => {
       },
     });
   };
+
+export const updateUser = (body, token) => {
+  return axios.put("http://localhost:4000/user/update", body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
