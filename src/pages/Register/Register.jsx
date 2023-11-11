@@ -60,11 +60,13 @@ export const Register = () => {
             registerUser(credentialsWithNumber)
                 .then((response) => {
                     console.log(response.data);
-                    const { message } = response.data;
+                    const {message} = response.data;
                     setMessage(message);
-                    setTimeout(() => {
-                        navigate("/login");
-                    }, 2500)
+                    if (error.target.value !== ""){
+                        setTimeout(() => {
+                            navigate("/login");
+                        }, 2500)
+                    }
                 })
                 .catch(error => {
                     console.log(error);
