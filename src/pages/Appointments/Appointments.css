@@ -6,3 +6,12 @@
     display: flex;
     justify-content: center;
 }
+
+.createAppointment{
+    width: 12em;
+    height: 2em;
+    background-color: lightblue;
+    border: 0.2em solid black;
+    border-radius: 0.7em;
+    color: black; 
+}
