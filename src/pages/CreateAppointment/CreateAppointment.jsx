@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { createAppointment } from "../../services/apiCalls";
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/validators";
+import ShiftToggle from "../../common/ShiftToggle/ShiftToggle";
 
 export const CreateAppointment = () => {
 
@@ -56,9 +57,9 @@ export const CreateAppointment = () => {
             createAppointment(appointmentsWithNumber, token)
                 .then((response) => {
                     console.log(response.data);
-                    const { message } = response.data;
+                    const { message, error } = response.data;
                     setMessage(message);
-                    if (error.target.value !== "") {
+                    if (!error) {
                         setTimeout(() => {
                             navigate("/appointments");
                         }, 2500)
@@ -83,13 +84,11 @@ export const CreateAppointment = () => {
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{appointmentError.dateError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"text"}
-                    name={"shift"}
-                    placeholder={"morning"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
+                <ShiftToggle
+                    selectedShift={appointment.shift}
+                    onShiftChange={(value) =>
+                        setAppointment((prevState) => ({ ...prevState, shift: value }))
+                    }
                 />
                 <div className='errorMsg'>{appointmentError.shiftError}</div>
                 <CustomInput
@@ -110,9 +109,7 @@ export const CreateAppointment = () => {
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{appointmentError.idError}</div>
-
-                <div className='buttonSubmit' onClick={Create}>Sign up</div>
-
+                <div className='buttonSubmit' onClick={Create}>Create Appointment</div>
                 <p>{message}</p>
             </div>
         </div>

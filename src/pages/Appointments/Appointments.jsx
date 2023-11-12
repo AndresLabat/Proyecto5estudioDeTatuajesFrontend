@@ -6,7 +6,7 @@ import { LinkButton } from "../../common/LinkButton/LinkButton";
 
 export const Appointments = () => {
     const [appointments, setAppointments] = useState([])
-
+  
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token && appointments.length === 0) {
@@ -23,6 +23,12 @@ export const Appointments = () => {
             {
                 appointments.length > 0
                     ? (<div className='appointments-Roster'>
+                        <div className="create-button">
+                            <LinkButton
+                                classButton={"createAppointment"}
+                                path={"/createAppointment"}
+                                title={"Create Appointment"} />
+                        </div>
                         <div>
                             {
                                 appointments.map(appointment => {
@@ -41,12 +47,6 @@ export const Appointments = () => {
                                     )
                                 }
                                 )}
-                            <div>
-                                <LinkButton
-                                    classButton={"createAppointment"}
-                                    path={"/createAppointment"}
-                                    title={"Create Appointment"} />
-                            </div>
                         </div>
                     </div>
                     )

@@ -21,3 +21,52 @@
 .photo {
     width: 6em;
 }
+
+.card-appointment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1em 0em 1em 0em;
+    border-radius: 0.5em;
+    background-color: rgb(161, 172, 219);
+    margin: 3em;
+    transition: 1s;
+  }
+  
+  .card-appointment-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition-duration: 2s;
+  }
+  
+  .card-appointment img {
+    border-radius: 10%;
+    width: 30%;
+    margin-top: 1.25em;
+  }
+  
+  .date-category {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 6em;
+  }
+  
+  .date, .shift, .service {
+    margin-right: 3em;
+  }
+  
+  .button-spoiler {
+    width: 10em;
+  }
+  
+  .tattoo-artist-card-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
