@@ -1,7 +1,7 @@
 import './LinkButton.css'
 import { useNavigate } from 'react-router-dom';
 
-export const LinkButton = ({path, title, classButton}) => {
+export const LinkButton = ({path, title, classButton, emit}) => {
 
      const navigate = useNavigate();
 
