@@ -18,6 +18,10 @@ export const Appointments = () => {
         }
     }, [appointments]);
 
+    const localStorageId = (argumento) => {
+        localStorage.setItem("appointmentId", argumento)
+    }
+
     return (
         <div className="appointments-body">
             {
@@ -43,6 +47,7 @@ export const Appointments = () => {
                                             nameWorker={appointment.full_name}
                                             date={appointment.date}
                                             shift={appointment.shift}
+                                            emit={()=>localStorageId(appointment.id)}
                                         />
                                     )
                                 }

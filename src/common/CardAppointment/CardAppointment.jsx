@@ -3,12 +3,13 @@ import "./CardAppointment.css";
 import { LinkButton } from "../LinkButton/LinkButton";
 
 export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, emailWorker, nameWorker,
-    appointmentId, date, shift, priceProduct }) => {
+    appointmentId, date, shift, priceProduct, emit }) => {
 
     const [collapsed, setCollapsed] = useState(true);
 
     const toggleCollapse = () => {
         setCollapsed(!collapsed);
+        emit()
     };
 
     return (
