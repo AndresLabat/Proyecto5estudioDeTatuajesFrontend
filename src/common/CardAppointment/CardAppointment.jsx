@@ -9,7 +9,6 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
 
     const toggleCollapse = () => {
         setCollapsed(!collapsed);
-        emit()
     };
 
     return (
@@ -41,6 +40,7 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
                         title={<div className="button-update-appointment" >
                             <img src="https://cdn.icon-icons.com/icons2/1558/PNG/512/353430-checkbox-edit-pen-pencil_107516.png" alt="" />
                         </div>}
+                        emit={()=>emit()}
                     />
 
                     {/* <div className="appointmentId">{appointmentId}</div> */}

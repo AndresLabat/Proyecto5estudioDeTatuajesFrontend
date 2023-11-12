@@ -74,6 +74,7 @@ export const validator = (type, value) => {
             }
 
         case `id`:
+        case `portfolioId`:
 
             const numberParse = parseInt(value)
             if (!value) {
