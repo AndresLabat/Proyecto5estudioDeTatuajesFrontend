@@ -51,3 +51,11 @@ export const updateAppointment = (body, token) => {
     },
   });
 };
+
+export const allUsers = (token) => {
+  return axios.get("http://localhost:4000/user/all?skip=12&page=1", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

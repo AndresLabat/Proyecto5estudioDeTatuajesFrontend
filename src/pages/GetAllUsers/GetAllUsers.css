@@ -1,0 +1,13 @@
+.users-body{
+    height: 84vh;
+    width: 100vw;
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+}
+
+.card-user{
+    display: flex;
+    flex-wrap: wrap;
+}
