@@ -59,3 +59,11 @@ export const allUsers = (token) => {
     },
   });
 };
+
+export const allAppointmens = (token) => {
+  return axios.get("http://localhost:4000/appointment/bySuperAdmin?skip=12&page=1", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

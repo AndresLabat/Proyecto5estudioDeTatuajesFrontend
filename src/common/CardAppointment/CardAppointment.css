@@ -59,7 +59,10 @@
 
 .date,
 .shift,
-.service {
+.service,
+.status,
+.client_name,
+.client_email {
   margin-right: 3em;
 }
 

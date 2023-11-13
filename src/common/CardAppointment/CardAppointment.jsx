@@ -3,7 +3,7 @@ import "./CardAppointment.css";
 import { LinkButton } from "../LinkButton/LinkButton";
 
 export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, emailWorker, nameWorker,
-    appointmentId, date, shift, priceProduct, emit }) => {
+    appointmentId, date, shift, priceProduct, emit, client_name, client_email, status }) => {
 
     const [collapsed, setCollapsed] = useState(true);
 
@@ -18,8 +18,11 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
                 <div className="date">{date}</div>
                 <div>Shift: </div>
                 <div className="shift">{shift}</div>
-                <div>Category Product : </div>
+                <div>Category Product: </div>
                 <div className="service">{categoryProduct}</div>
+                <div className="status">{status}</div>
+                <div className="client_name">{client_name} </div>
+                <div className="client_email">{client_email} </div>
             </div>
             <button className="button-spoiler" onClick={toggleCollapse}>
                 {collapsed ? "Details" : "Hide"}
@@ -40,10 +43,8 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
                         title={<div className="button-update-appointment" >
                             <img src="https://cdn.icon-icons.com/icons2/1558/PNG/512/353430-checkbox-edit-pen-pencil_107516.png" alt="" />
                         </div>}
-                        emit={()=>emit()}
+                        emit={() => emit()}
                     />
-
-                    {/* <div className="appointmentId">{appointmentId}</div> */}
                 </div>
             )}
         </div>
