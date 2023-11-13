@@ -59,7 +59,7 @@ export const CreateAppointment = () => {
                     console.log(response.data);
                     const { message, error } = response.data;
                     setMessage(message);
-                    if (!error) {
+                    if (message == "appointment created succesfully") {
                         setTimeout(() => {
                             navigate("/appointments");
                         }, 2500)
