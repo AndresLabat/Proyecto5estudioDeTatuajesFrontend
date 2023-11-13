@@ -14,14 +14,14 @@ export const CreateAppointment = () => {
         date: "",
         shift: "",
         email: "",
-        id: "",
+        portfolio_id: "",
     });
 
     const [appointmentError, setAppointmentError] = useState({
         dateError: "",
         shiftError: "",
         emailError: "",
-        idError: ""
+        portfolio_idError: ""
     });
 
     const [message, setMessage] = useState("");
@@ -48,16 +48,16 @@ export const CreateAppointment = () => {
         if (appointment.date != "" &&
             appointment.shift != "" &&
             appointment.email != "" &&
-            appointment.id != "") {
+            appointment.portfolio_id != "") {
             const appointmentsWithNumber = {
                 ...appointment,
-                id: parseInt(appointment.id, 20),
+                portfolio_id: parseInt(appointment.portfolio_id, 10),
             };
             const token = localStorage.getItem("token");
             createAppointment(appointmentsWithNumber, token)
                 .then((response) => {
                     console.log(response.data);
-                    const { message, error } = response.data;
+                    const { message } = response.data;
                     setMessage(message);
                     if (message == "appointment created succesfully") {
                         setTimeout(() => {
@@ -103,12 +103,12 @@ export const CreateAppointment = () => {
                 <CustomInput
                     design={"inputDesign"}
                     type={"number"}
-                    name={"id"}
+                    name={"portfolio_id"}
                     placeholder={"1"}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
-                <div className='errorMsg'>{appointmentError.idError}</div>
+                <div className='errorMsg'>{appointmentError.portfolio_idError}</div>
                 <div className='buttonSubmit' onClick={Create}>Create Appointment</div>
                 <p>{message}</p>
             </div>
