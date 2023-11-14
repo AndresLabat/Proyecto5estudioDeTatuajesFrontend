@@ -3,7 +3,6 @@ import "./GetAllUsers.css"
 import { CardUser } from "../../common/CardUser/CardUser";
 import { allUsers } from "../../services/apiCalls";
 
-
 export const GetAllUsers = () => {
     const [users, setUsers] = useState([])
 
@@ -24,20 +23,20 @@ export const GetAllUsers = () => {
         <div className="users-body">
             {
                 users.length > 0
-                    ? (<div className='users-Roster'>
+                    ? (<div className='card-user'>
                         {
                             users.map(user => {
                                 if (user.is_active == true) {
-                                    user.is_active = "this user is active"
+                                    user.is_active = "User active"
                                 } else if (user.is_active == false) {
-                                    user.is_active = "this user is not active"
+                                    user.is_active = "User not active"
                                 }
                                 if (user.role_id == 1) {
-                                    user.role_id = "this user is a client"
+                                    user.role_id = "Client"
                                 } else if (user.role_id == 2) {
-                                    user.role_id = "this user is a worker"
+                                    user.role_id = "Worker"
                                 } else if (user.role_id == 3) {
-                                    user.role_id = "this user is a super admin"
+                                    user.role_id = "Super admin"
                                 }
                                 return (
                                     <CardUser

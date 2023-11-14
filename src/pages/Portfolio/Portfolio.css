@@ -1,4 +1,4 @@
-.createAppointment-body{
+.portfolio-body{
     width: 100vw;
     min-height: 90vh;
     background-color: rgb(61, 61, 61);
@@ -6,8 +6,7 @@
     justify-content: center;
 }
 
-.createAppointment-body{
+.card-portfolio{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
 }

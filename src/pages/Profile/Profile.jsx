@@ -25,7 +25,7 @@ export const Profile = () => {
             {
                 user
                     ? (
-                        <div className="div-photo">
+                        <div className="div-info">
                             <img src={user.photo} alt="User" />
                             <div>Name: {user.full_name}</div>
                             <div>Email: {user.email}</div>

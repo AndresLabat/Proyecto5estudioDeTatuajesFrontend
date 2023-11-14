@@ -67,3 +67,7 @@ export const allAppointmens = (token) => {
     },
   });
 };
+
+export const portfolio = async () => {
+  return await axios.get(`http://localhost:4000/portfolio/get?skip=12&page=1`);
+}

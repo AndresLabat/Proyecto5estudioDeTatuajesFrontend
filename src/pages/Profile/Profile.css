@@ -1,13 +1,16 @@
 .profile-body{
-    height: 84vh;
     width: 100vw;
-    background-color: aqua;
-
+    min-height: 90vh;
+    background-color: rgb(61, 61, 61);
     display: flex;
     justify-content: center;
 }
 
-.div-photo img{
+.div-info{
+    color: white;
+}
+
+.div-info img{
     width: 14em;
 }
 

@@ -1,8 +1,7 @@
 .home-body{
-    height: 84vh;
+    min-height: 90vh;
     width: 100vw;
-    background-color: aqua;
-
+    background-color: rgb(61, 61, 61);
     display: flex;
     justify-content: center;
 }
