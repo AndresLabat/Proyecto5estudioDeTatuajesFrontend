@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { profileUser } from "../../services/apiCalls";
 import { LinkButton } from "../../common/LinkButton/LinkButton";
+import { Navigate } from "react-router-dom";
 
 //Rdx
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
-import { Navigate } from "react-router-dom";
 
 export const Profile = () => {
 

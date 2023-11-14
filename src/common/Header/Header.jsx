@@ -5,15 +5,15 @@ import { Navigate } from 'react-router-dom';
 
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
-import { logout, userData } from "../../pages/userSlice";
+import { logout, selectToken } from "../../pages/userSlice";
 
 export const Header = () => {
 
     const dispatch = useDispatch();
-    const rdxCredentials = useSelector(userData);
+    const rdxToken = useSelector(selectToken);
 
     const logOutMe = () => {
-        dispatch(logout({ credentials: "" }))
+        dispatch(logout())
         Navigate("/")
     }
 
@@ -35,7 +35,7 @@ export const Header = () => {
                 title={"Portfolio"}
             />
             {
-                rdxCredentials?.credentials.token
+                rdxToken
                     ? (
                         <>
                             <LinkButton
@@ -55,7 +55,8 @@ export const Header = () => {
                                     title={"log out"} />
                             </div>
                         </>
-                    ) : (
+                    ) 
+                    : (
                         <>
                             <LinkButton
                                 classButton={"linkButtonDesign"}
@@ -70,17 +71,24 @@ export const Header = () => {
                         </>
                     )
             }
-
-            <LinkButton
-                classButton={"linkButtonDesign"}
-                path={"/getAllUsers"}
-                title={"All Users"}
-            />
-            <LinkButton
-                classButton={"linkButtonDesign"}
-                path={"/getAllAppointments"}
-                title={"All Appointments"}
-            />
+            {
+                rdxToken
+                    ? (
+                        <>
+                            <LinkButton
+                                classButton={"linkButtonDesign"}
+                                path={"/getAllUsers"}
+                                title={"All Users"}
+                            />
+                            <LinkButton
+                                classButton={"linkButtonDesign"}
+                                path={"/getAllAppointments"}
+                                title={"All Appointments"}
+                            />
+                        </>
+                    )
+                    : (<></>)
+            }
         </div>
     )
 }
