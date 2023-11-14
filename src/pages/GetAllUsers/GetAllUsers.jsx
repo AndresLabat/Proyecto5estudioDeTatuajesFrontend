@@ -16,7 +16,7 @@ export const GetAllUsers = () => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        if (rdxToken && users.length == 0) {
+        if (rdxToken) {
             allUsers(rdxToken)
                 .then(user => {
                     console.log(user.data);

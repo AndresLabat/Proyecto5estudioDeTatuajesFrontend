@@ -32,7 +32,7 @@ export const UpdateAppointment = () => {
     });
 
     useEffect(() => {
-        if (rdxToken && appointment.id === "") {
+        if (rdxToken) {
             const id = localStorage.getItem("appointmentId");
             setAppointment((prevState) => ({ ...prevState, id: id }))
         } else {

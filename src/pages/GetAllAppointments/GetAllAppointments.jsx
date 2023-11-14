@@ -17,7 +17,7 @@ export const GetAllAppointments = () => {
     const [appointments, setAppointments] = useState([])
 
     useEffect(() => {
-        if (rdxToken && appointments.length === 0) {
+        if (rdxToken) {
             allAppointmens(rdxToken)
                 .then(response => {
                     setAppointments(response.data.data);
