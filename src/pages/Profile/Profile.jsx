@@ -3,7 +3,15 @@ import "./Profile.css";
 import { profileUser } from "../../services/apiCalls";
 import { LinkButton } from "../../common/LinkButton/LinkButton";
 
+//Rdx
+import { useSelector } from "react-redux";
+import { selectToken } from "../userSlice";
+import { Navigate } from "react-router-dom";
+
 export const Profile = () => {
+
+    const rdxToken = useSelector(selectToken);
+
     const [user, setUser] = useState({
         full_name: "",
         email: "",
@@ -12,12 +20,15 @@ export const Profile = () => {
     });
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        profileUser(token)
-            .then((response) => {
-                setUser(response.data.data);
-            })
-            .catch(error => console.log(error))
+        if (rdxToken) {
+            profileUser(rdxToken)
+                .then((response) => {
+                    setUser(response.data.data);
+                })
+                .catch(error => console.log(error))
+        } else {
+            Navigate("/login");
+        }
     }, []);
 
     return (

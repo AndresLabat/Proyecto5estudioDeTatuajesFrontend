@@ -5,12 +5,12 @@ import { Body } from './pages/Body/Body';
 
 function App() {
   return (
+    <>
     <MantineProvider>
-      <>
         <Header />
         <Body />
-      </>
     </MantineProvider>
+      </>
   );
 }
 

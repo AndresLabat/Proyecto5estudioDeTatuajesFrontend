@@ -5,9 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { logUser } from "../../services/apiCalls";
 import { validator } from "../../services/validators";
 
+//Importo Rdx
+import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
+import { login } from "../userSlice";
+
 export const Login = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [credentials, setCredentials] = useState({
         email: "",
@@ -40,15 +45,14 @@ export const Login = () => {
     }
 
     const logMe = () => {
-        if (credentials.password != "" &&
-            credentials.email != "") {
+        if (credentials.password != "" && credentials.email != "") {
             logUser(credentials)
                 .then((response) => {
                     const { message, token } = response.data;
                     setMessage(message);
                     if (message == "user logged succesfully") {
+                        dispatch(login(token))
                         setTimeout(() => {
-                            localStorage.setItem("token", token)
                             navigate("/profile");
                         }, 2500)
                     }
@@ -82,7 +86,6 @@ export const Login = () => {
                 <div className='errorMsg'>{credentialsError.passwordError}</div>
 
                 <div className='buttonSubmit' onClick={logMe}>Log in</div>
-
                 <p> {message}</p>
             </div>
         </div>
