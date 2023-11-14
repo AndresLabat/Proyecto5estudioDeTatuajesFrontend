@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./CreateAppointment.css"
-import { useNavigate } from "react-router-dom";
 import { createAppointment } from "../../services/apiCalls";
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/validators";
 import ShiftToggle from "../../common/ShiftToggle/ShiftToggle";
+import { useNavigate } from "react-router-dom";
+
+//Rdx
+import { useSelector } from "react-redux";
+import { selectToken } from "../userSlice";
 
 export const CreateAppointment = () => {
 
+    const rdxToken = useSelector(selectToken);
     const navigate = useNavigate();
 
     const [appointment, setAppointment] = useState({
@@ -23,6 +28,12 @@ export const CreateAppointment = () => {
         emailError: "",
         portfolio_idError: ""
     });
+
+    useEffect(() => {
+        if (!rdxToken) {
+            navigate("/");
+        }
+    }, []);
 
     const [message, setMessage] = useState("");
 
@@ -53,8 +64,7 @@ export const CreateAppointment = () => {
                 ...appointment,
                 portfolio_id: parseInt(appointment.portfolio_id, 10),
             };
-            const token = localStorage.getItem("token");
-            createAppointment(appointmentsWithNumber, token)
+            createAppointment(appointmentsWithNumber, rdxToken)
                 .then((response) => {
                     console.log(response.data);
                     const { message } = response.data;
@@ -68,6 +78,7 @@ export const CreateAppointment = () => {
                 .catch(error => {
                     console.log(error);
                 });
+
         }
     };
 

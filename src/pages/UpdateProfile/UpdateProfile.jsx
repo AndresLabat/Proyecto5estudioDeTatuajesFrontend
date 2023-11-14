@@ -5,8 +5,13 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/validators";
 import { updateUser } from "../../services/apiCalls";
 
+//Rdx
+import { useSelector } from "react-redux";
+import { selectToken } from "../userSlice";
+
 export const UpdateProfile = () => {
 
+    const rdxToken = useSelector(selectToken);
     const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({
@@ -22,6 +27,12 @@ export const UpdateProfile = () => {
         phone_numberError: "",
         photoError: ""
     });
+
+    useEffect(() => {
+        if (!rdxToken) {
+            navigate("/");
+        }
+    }, []);
 
     const [message, setMessage] = useState("");
 

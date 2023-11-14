@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { profileUser } from "../../services/apiCalls";
 import { LinkButton } from "../../common/LinkButton/LinkButton";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //Rdx
 import { useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import { selectToken } from "../userSlice";
 export const Profile = () => {
 
     const rdxToken = useSelector(selectToken);
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         full_name: "",
@@ -27,7 +28,7 @@ export const Profile = () => {
                 })
                 .catch(error => console.log(error))
         } else {
-            Navigate("/login");
+            navigate("/");
         }
     }, []);
 

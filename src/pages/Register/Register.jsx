@@ -5,8 +5,13 @@ import { registerUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { validator } from "../../services/validators";
 
+//Rdx
+import { useSelector } from "react-redux";
+import { selectToken } from "../userSlice";
+
 export const Register = () => {
 
+    const rdxToken = useSelector(selectToken);
     const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({
@@ -24,6 +29,12 @@ export const Register = () => {
         phone_numberError: "",
         photoError: ""
     });
+
+    useEffect(() => {
+        if (rdxToken) {
+            navigate("/");
+        }
+    }, []);
 
     const [message, setMessage] = useState("");
 

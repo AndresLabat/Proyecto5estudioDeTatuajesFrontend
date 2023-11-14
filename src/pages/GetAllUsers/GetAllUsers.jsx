@@ -2,22 +2,31 @@ import React, { useState, useEffect } from "react";
 import "./GetAllUsers.css"
 import { CardUser } from "../../common/CardUser/CardUser";
 import { allUsers } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
+
+//Rdx
+import { useSelector } from "react-redux";
+import { selectToken } from "../userSlice";
 
 export const GetAllUsers = () => {
+
+    const rdxToken = useSelector(selectToken);
+    const navigate = useNavigate();
+
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        if (users.length == 0) {
-            const token = localStorage.getItem("token")
-            allUsers(token)
+        if (rdxToken && users.length == 0) {
+            allUsers(rdxToken)
                 .then(user => {
                     console.log(user.data);
                     setUsers(user.data.data)
                 })
                 .catch(error => console.log(error))
+        } else if (!rdxToken) {
+            navigate("/");
         }
     }, [users])
-    console.log(users);
 
     return (
         <div className="users-body">
