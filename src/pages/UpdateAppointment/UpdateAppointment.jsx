@@ -35,7 +35,7 @@ export const UpdateAppointment = () => {
         if (rdxToken && appointment.id === "") {
             const id = localStorage.getItem("appointmentId");
             setAppointment((prevState) => ({ ...prevState, id: id }))
-        } else if (!rdxToken) {
+        } else {
             navigate("/");
         }
     }, [appointment])
@@ -73,12 +73,10 @@ export const UpdateAppointment = () => {
                 id: parseInt(appointment.id, 10),
                 portfolioId: parseInt(appointment.portfolioId, 10),
             };
-            const token = localStorage.getItem("token");
-            console.log(appointmentsWithNumber);
-            updateAppointment(appointmentsWithNumber, token)
+            updateAppointment(appointmentsWithNumber, rdxToken)
                 .then((response) => {
                     console.log(response.data);
-                    const { message, error } = response.data;
+                    const { message } = response.data;
                     setMessage(message);
                     if (message == "appointment updated succesfully") {
                         setTimeout(() => {

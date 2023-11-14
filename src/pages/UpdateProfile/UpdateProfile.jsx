@@ -65,8 +65,7 @@ export const UpdateProfile = () => {
                 phone_number: parseInt(credentials.phone_number, 10),
                 photo: photoDefault(credentials.photo)
             };
-            const token = localStorage.getItem("token");
-            updateUser(credentialsWithNumber, token)
+            updateUser(credentialsWithNumber, rdxToken)
                 .then((response) => {
                     console.log(response.data);
                     const { message, error } = response.data;

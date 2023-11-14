@@ -23,7 +23,7 @@ export const Appointments = () => {
                     setAppointments(response.data.data);
                 })
                 .catch(error => console.log(error));
-        } else if (rdxToken == null) {
+        } else {
             navigate("/");
         }
     }, []);

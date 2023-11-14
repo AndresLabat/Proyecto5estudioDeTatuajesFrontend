@@ -23,7 +23,7 @@ export const GetAllUsers = () => {
                     setUsers(user.data.data)
                 })
                 .catch(error => console.log(error))
-        } else if (!rdxToken) {
+        } else {
             navigate("/");
         }
     }, [users])

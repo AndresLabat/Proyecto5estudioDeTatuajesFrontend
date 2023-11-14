@@ -23,7 +23,7 @@ export const GetAllAppointments = () => {
                     setAppointments(response.data.data);
                 })
                 .catch(error => console.log(error));
-        } else if (!rdxToken) {
+        } else {
             navigate("/");
         }
     }, [appointments]);
