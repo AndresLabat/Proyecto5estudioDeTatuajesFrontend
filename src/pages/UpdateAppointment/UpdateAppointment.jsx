@@ -36,7 +36,6 @@ export const UpdateAppointment = () => {
     useEffect(() => {
         if (rdxToken) {
             setAppointment((prevState) => ({ ...prevState, id: rdxAppointmentId }))
-            console.log(rdxAppointmentId);
         } else {
             navigate("/");
         }

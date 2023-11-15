@@ -5,12 +5,13 @@ import { CardAppointment } from "../../common/CardAppointment/CardAppointment";
 import { LinkButton } from "../../common/LinkButton/LinkButton";
 import { useNavigate } from "react-router-dom";
 
-import { selectToken } from "../userSlice";
+//Rdx escritura
 import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
-
-//Rdx
-import { useSelector } from "react-redux";
 import { appointmentId } from "../appointmentSlice";
+
+//Rdx lectura
+import { useSelector } from "react-redux";
+import { selectToken } from "../userSlice";
 
 export const Appointments = () => {
 
@@ -36,7 +37,6 @@ export const Appointments = () => {
         dispatch(appointmentId(argumento))
     }
 
-    console.log(appointments);
     return (
         <div className="appointments-body">
             {

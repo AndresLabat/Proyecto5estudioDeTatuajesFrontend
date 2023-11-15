@@ -6,13 +6,18 @@ import { CardAppointment } from "../../common/CardAppointment/CardAppointment";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
-//Rdx
+//Rdx escritura
+import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
+import { appointmentId } from "../appointmentSlice";
+
+//Rdx lectura
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
 
 export const GetAllAppointments = () => {
     const rdxToken = useSelector(selectToken);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [appointments, setAppointments] = useState([])
 
@@ -36,8 +41,8 @@ export const GetAllAppointments = () => {
         }
     }, [appointments]);
 
-    const localStorageId = (argumento) => {
-        localStorage.setItem("appointmentId", argumento)
+    const rdxIdAppointment = (argumento) => {
+        dispatch(appointmentId(argumento))
     }
 
     return (
@@ -73,7 +78,7 @@ export const GetAllAppointments = () => {
                                             client_name={appointment.client_name}
                                             client_email={appointment.client_email}
                                             status={appointment.status}
-                                            emit={() => localStorageId(appointment.id)}
+                                            emit={() => rdxIdAppointment(appointment.id)}
                                         />
                                     )
                                 }

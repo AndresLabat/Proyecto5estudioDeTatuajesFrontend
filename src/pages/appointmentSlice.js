@@ -10,9 +10,8 @@ export const appointmentSlice = createSlice({
             state.appointmentId = action.payload; 
         },
     }
-
 });
 
-export const selectAppointmentId = (state) => state.appointment.appointmentId;
 export const { appointmentId } = appointmentSlice.actions;
+export const selectAppointmentId = (state) => state.appointment.appointmentId;
 export default appointmentSlice.reducer;
