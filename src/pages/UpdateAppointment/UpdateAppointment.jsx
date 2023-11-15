@@ -9,10 +9,12 @@ import { updateAppointment } from "../../services/apiCalls";
 //Rdx
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
+import { selectAppointmentId } from "../appointmentSlice";
 
 export const UpdateAppointment = () => {
 
     const rdxToken = useSelector(selectToken);
+    const rdxAppointmentId = useSelector(selectAppointmentId);
     const navigate = useNavigate();
 
     const [appointment, setAppointment] = useState({
@@ -33,12 +35,12 @@ export const UpdateAppointment = () => {
 
     useEffect(() => {
         if (rdxToken) {
-            const id = localStorage.getItem("appointmentId");
-            setAppointment((prevState) => ({ ...prevState, id: id }))
+            setAppointment((prevState) => ({ ...prevState, id: rdxAppointmentId }))
+            console.log(rdxAppointmentId);
         } else {
             navigate("/");
         }
-    }, [appointment])
+    }, [])
 
     const [message, setMessage] = useState("");
 

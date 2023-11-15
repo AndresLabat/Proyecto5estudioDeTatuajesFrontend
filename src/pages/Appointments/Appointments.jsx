@@ -5,14 +5,18 @@ import { CardAppointment } from "../../common/CardAppointment/CardAppointment";
 import { LinkButton } from "../../common/LinkButton/LinkButton";
 import { useNavigate } from "react-router-dom";
 
+import { selectToken } from "../userSlice";
+import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
+
 //Rdx
 import { useSelector } from "react-redux";
-import { selectToken } from "../userSlice";
+import { appointmentId } from "../appointmentSlice";
 
 export const Appointments = () => {
 
     const rdxToken = useSelector(selectToken);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [appointments, setAppointments] = useState([])
 
@@ -28,9 +32,10 @@ export const Appointments = () => {
         }
     }, []);
 
-    const localStorageId = (argumento) => {
-        localStorage.setItem("appointmentId", argumento)
+    const rdxIdAppointment = (argumento) => {
+        dispatch(appointmentId(argumento))
     }
+
     console.log(appointments);
     return (
         <div className="appointments-body">
@@ -57,7 +62,7 @@ export const Appointments = () => {
                                             nameWorker={appointment.full_name}
                                             date={appointment.date}
                                             shift={appointment.shift}
-                                            emit={() => localStorageId(appointment.id)}
+                                            emit={() => rdxIdAppointment(appointment.id)}
                                         />
                                     )
                                 }

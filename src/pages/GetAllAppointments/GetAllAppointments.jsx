@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
 
 export const GetAllAppointments = () => {
-
     const rdxToken = useSelector(selectToken);
     const navigate = useNavigate();
 
@@ -24,10 +23,10 @@ export const GetAllAppointments = () => {
                 allAppointmens(rdxToken)
                     .then(
                         response => {
-                            if(appointments.length == 0){
+                            if (appointments.length == 0) {
                                 setAppointments(response.data.data);
                             }
-                    })
+                        })
                     .catch(error => console.log(error));
             } else {
                 navigate("/");

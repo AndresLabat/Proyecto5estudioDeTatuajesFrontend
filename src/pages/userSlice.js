@@ -7,17 +7,16 @@ export const userSlice = createSlice({
     },
     reducers: {
         login: (state, action) => {
-            state.token = action.payload;
-            
+            state.token = action.payload; 
         },
         logout: (state, action) => {
             state.token = null
-        }
+        },
     }
 
 });
 
-export const selectToken = (state) => state.user.token;
 export const { login, logout } = userSlice.actions;
+export const selectToken = (state) => state.user.token;
 export const userData = (state) => state.user;
 export default userSlice.reducer;
