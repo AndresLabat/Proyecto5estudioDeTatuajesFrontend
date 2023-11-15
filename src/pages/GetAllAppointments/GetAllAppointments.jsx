@@ -4,6 +4,7 @@ import { allAppointmens } from "../../services/apiCalls";
 import { LinkButton } from "../../common/LinkButton/LinkButton";
 import { CardAppointment } from "../../common/CardAppointment/CardAppointment";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 //Rdx
 import { useSelector } from "react-redux";
@@ -18,11 +19,19 @@ export const GetAllAppointments = () => {
 
     useEffect(() => {
         if (rdxToken) {
-            allAppointmens(rdxToken)
-                .then(response => {
-                    setAppointments(response.data.data);
-                })
-                .catch(error => console.log(error));
+            const decoded = jwtDecode(rdxToken);
+            if (decoded.role == "super_admin") {
+                allAppointmens(rdxToken)
+                    .then(
+                        response => {
+                            if(appointments.length == 0){
+                                setAppointments(response.data.data);
+                            }
+                    })
+                    .catch(error => console.log(error));
+            } else {
+                navigate("/");
+            }
         } else {
             navigate("/");
         }
@@ -46,9 +55,9 @@ export const GetAllAppointments = () => {
                         <div>
                             {
                                 appointments.map(appointment => {
-                                    if (appointment.status){
+                                    if (appointment.status) {
                                         appointment.status = "pending"
-                                    } else if (!appointment.status){
+                                    } else if (!appointment.status) {
                                         appointment.status = "done"
                                     }
                                     return (

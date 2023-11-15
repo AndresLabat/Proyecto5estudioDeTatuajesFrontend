@@ -3,6 +3,7 @@ import "./GetAllUsers.css"
 import { CardUser } from "../../common/CardUser/CardUser";
 import { allUsers } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 //Rdx
 import { useSelector } from "react-redux";
@@ -17,12 +18,19 @@ export const GetAllUsers = () => {
 
     useEffect(() => {
         if (rdxToken) {
-            allUsers(rdxToken)
-                .then(user => {
-                    console.log(user.data);
-                    setUsers(user.data.data)
-                })
-                .catch(error => console.log(error))
+            const decoded = jwtDecode(rdxToken);
+            if (decoded.role == "super_admin") {
+                allUsers(rdxToken)
+                    .then(
+                        user => {
+                            if (users.length == 0) {
+                                setUsers(user.data.data)
+                            }
+                        })
+                    .catch(error => console.log(error))
+            } else {
+                navigate("/");
+            }
         } else {
             navigate("/");
         }
