@@ -71,3 +71,15 @@ export const allAppointmens = (token) => {
 export const portfolio = async () => {
   return await axios.get(`http://localhost:4000/portfolio/get?skip=12&page=1`);
 }
+
+export const deleteAppointment = async (id, token) => {
+  console.log(token);
+  return await axios.delete(`http://localhost:4000/appointment/delete`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    data: {
+      id: id,
+    },
+  });
+};

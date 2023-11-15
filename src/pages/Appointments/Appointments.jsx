@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Appointments.css"
-import { appointmentsUser } from "../../services/apiCalls";
+import { appointmentsUser, deleteAppointment } from "../../services/apiCalls";
 import { CardAppointment } from "../../common/CardAppointment/CardAppointment";
 import { LinkButton } from "../../common/LinkButton/LinkButton";
 import { useNavigate } from "react-router-dom";
@@ -42,6 +42,14 @@ export const Appointments = () => {
         dispatch(appointmentId(argumento))
     }
 
+    const deleteAppointments = (body, token) => {
+        deleteAppointment(body, token)
+        .then(response =>{
+            console.log(response.data.message);
+        } )
+        .catch(error => console.log(error))
+    }
+
     return (
         <div className="appointments-body">
             {
@@ -68,6 +76,7 @@ export const Appointments = () => {
                                             date={appointment.date}
                                             shift={appointment.shift}
                                             emit={() => rdxIdAppointment(appointment.id)}
+                                            action={() => deleteAppointments(appointment.id, rdxToken)}
                                         />
                                     )
                                 }

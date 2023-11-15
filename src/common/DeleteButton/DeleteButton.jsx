@@ -1,8 +1,8 @@
 import './DeleteButton.css'
 
-export const DeleteButton = ({emit}) => {
+export const DeleteButton = ({action}) => {
 
      return (
-         <div className="delete-button" onClick={()=>emit()}>Delete</div>
+         <div className="delete-button" onClick={()=>action()}>Delete</div>
      )
 }

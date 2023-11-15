@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./CardAppointment.css";
 import { LinkButton } from "../LinkButton/LinkButton";
+import { DeleteButton } from "../DeleteButton/DeleteButton";
 
 export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, emailWorker, nameWorker,
-    appointmentId, date, shift, priceProduct, emit, client_name, client_email, status }) => {
+    appointmentId, date, shift, priceProduct, emit, client_name, client_email, status, action }) => {
 
     const [collapsed, setCollapsed] = useState(true);
 
@@ -44,6 +45,9 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
                             <img src="https://cdn.icon-icons.com/icons2/1558/PNG/512/353430-checkbox-edit-pen-pencil_107516.png" alt="" />
                         </div>}
                         emit={() => emit()}
+                    />
+                    <DeleteButton 
+                        action={() => action()}
                     />
                 </div>
             )}
