@@ -15,6 +15,7 @@ export const GetAllUsers = () => {
     const navigate = useNavigate();
 
     const [users, setUsers] = useState([])
+    const [flag, setflag] = useState(false)
 
     useEffect(() => {
         if (rdxToken) {
@@ -23,8 +24,9 @@ export const GetAllUsers = () => {
                 allUsers(rdxToken)
                     .then(
                         user => {
-                            if (users.length == 0) {
+                            if (flag == false) {
                                 setUsers(user.data.data)
+                                setflag(true)
                             }
                         })
                     .catch(error => console.log(error))

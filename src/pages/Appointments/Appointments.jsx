@@ -20,18 +20,23 @@ export const Appointments = () => {
     const dispatch = useDispatch();
 
     const [appointments, setAppointments] = useState([])
+    const [flag, setflag] = useState(false)
 
     useEffect(() => {
-        if (rdxToken && appointments.length == 0) {
+        if (rdxToken) {
             appointmentsUser(rdxToken)
-                .then(response => {
-                    setAppointments(response.data.data);
-                })
+                .then(
+                    response => {
+                        if (flag == false) {
+                            setAppointments(response.data.data);
+                            setflag(true)
+                        }
+                    })
                 .catch(error => console.log(error));
         } else {
             navigate("/");
         }
-    }, []);
+    }, [appointments]);
 
     const rdxIdAppointment = (argumento) => {
         dispatch(appointmentId(argumento))

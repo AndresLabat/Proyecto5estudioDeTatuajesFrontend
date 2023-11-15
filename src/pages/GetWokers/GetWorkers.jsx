@@ -6,15 +6,18 @@ import { getWorkers } from "../../services/apiCalls";
 export const GetWorkers = () => {
 
     const [workers, setWorkers] = useState([])
+    const [flag, setflag] = useState(false)
 
     useEffect(() => {
-        if (workers.length === 0) {
-            getWorkers()
-                .then(worker => {
-                    setWorkers(worker.data.data)
+        getWorkers()
+            .then(
+                worker => {
+                    if (flag == false) {
+                        setWorkers(worker.data.data)
+                        setflag(true)
+                    }
                 })
-                .catch(error => console.log(error))
-        }
+            .catch(error => console.log(error))
     }, [workers])
 
     return (

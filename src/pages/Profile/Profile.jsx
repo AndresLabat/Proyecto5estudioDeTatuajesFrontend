@@ -20,17 +20,23 @@ export const Profile = () => {
         photo: "",
     });
 
+    const [flag, setflag] = useState(false)
+
     useEffect(() => {
         if (rdxToken) {
             profileUser(rdxToken)
-                .then((response) => {
-                    setUser(response.data.data);
-                })
+                .then(
+                    response => {
+                        if (flag == false) {
+                            setUser(response.data.data);
+                            setflag(true)
+                        }
+                    })
                 .catch(error => console.log(error))
         } else {
             navigate("/");
         }
-    }, []);
+    }, [user]);
 
     return (
         <div className="profile-body">

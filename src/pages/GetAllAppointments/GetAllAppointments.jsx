@@ -20,6 +20,7 @@ export const GetAllAppointments = () => {
     const dispatch = useDispatch();
 
     const [appointments, setAppointments] = useState([])
+    const [flag, setflag] = useState(false)
 
     useEffect(() => {
         if (rdxToken) {
@@ -28,8 +29,9 @@ export const GetAllAppointments = () => {
                 allAppointmens(rdxToken)
                     .then(
                         response => {
-                            if (appointments.length == 0) {
+                            if (flag == false) {
                                 setAppointments(response.data.data);
+                                setflag(true)
                             }
                         })
                     .catch(error => console.log(error));

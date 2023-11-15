@@ -6,15 +6,18 @@ import { CardPortfolio } from "../../common/CardPortfolio/CardPortfolio";
 export const Portfolio = () => {
 
     const [allPortfolio, setAllPortfolio] = useState([])
+    const [flag, setflag] = useState(false)
 
     useEffect(() => {
-        if (allPortfolio.length === 0) {
-            portfolio()
-                .then(product => {
-                    setAllPortfolio(product.data.data)
+        portfolio()
+            .then(
+                product => {
+                    if (flag == false) {
+                        setAllPortfolio(product.data.data)
+                        setflag(true)
+                    }
                 })
-                .catch(error => console.log(error))
-        }
+            .catch(error => console.log(error))
     }, [allPortfolio])
 
     return (
