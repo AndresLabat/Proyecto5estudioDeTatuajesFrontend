@@ -12,6 +12,10 @@ export const getWorkers = async () => {
   return await axios.get(`http://localhost:4000/user/allWorkers?skip=12&page=1`);
 }
 
+export const getWorkersHome = async () => {
+  return await axios.get(`http://localhost:4000/user/allWorkers?skip=6&page=1`);
+}
+
 export const profileUser = (token) => {
   return axios.get("http://localhost:4000/user/profile", {
     headers: {
@@ -70,6 +74,10 @@ export const allAppointmens = (token) => {
 
 export const portfolio = async () => {
   return await axios.get(`http://localhost:4000/portfolio/get?skip=12&page=1`);
+}
+
+export const portfolioHome = async () => {
+  return await axios.get(`http://localhost:4000/portfolio/get?skip=6&page=1`);
 }
 
 export const deleteAppointment = async (id, token) => {

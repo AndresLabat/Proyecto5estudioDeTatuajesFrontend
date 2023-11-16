@@ -5,16 +5,47 @@
 .home-body {
     min-height: 90vh;
     width: 100vw;
-    background-image: url('../../../img/foto estudio 1.jpg'); 
-    filter: blur(5px);
+    background-image: url('../../../img/foto\ estudio\ 3.png'); 
+    background-size: cover;
+    filter: blur(2.5px);
 }
 
 .container-workers {
     width: 100vw;
     height: 45vh;
-    border: 0.1em solid white;
-    position: absolute;
     top: 25%;
+    left: 50%; 
+    /* border: 0.1em solid white; */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.title-workers, .title-portfolio{
+    width: 100vw;
+    height: 7vh;
+    /* border: 0.1em solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 1.5em;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fredericka the Great', serif;
+    background-color: #cec69b65;
+}
+
+.workers, .div-portfolio {
+    width: 100vw;
+    height: 38vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 0.1em solid white; */
+    position: absolute;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -23,7 +54,7 @@
 .container-portfolio {
     width: 100vw;
     height: 45vh;
-    border: 0.1em solid white;
+    /* border: 0.1em solid white; */
     position: absolute;
     top: 75%;
     left: 50%;

@@ -24,7 +24,6 @@ export const GetWorkers = () => {
         <div className="workers-body">
             {
                 workers.length > 0
-
                     ? (<div className="card-worker">
                         {
                             workers.map(worker => {
@@ -40,7 +39,6 @@ export const GetWorkers = () => {
                             })
                         }
                     </div>)
-
                     : (
                         <div>Loading...</div>
                     )
