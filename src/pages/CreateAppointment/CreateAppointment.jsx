@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./CreateAppointment.css"
-import { createAppointment, getWorkers } from "../../services/apiCalls";
+import { createAppointment, getWorkers, portfolio } from "../../services/apiCalls";
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/validators";
 import ShiftToggle from "../../common/ShiftToggle/ShiftToggle";
@@ -47,9 +47,26 @@ export const CreateAppointment = () => {
                 )
                 .catch(error => console.log(error))
         } else {
-            console.log("artists vale...", workers)
+            console.log("artists value ", workers)
         }
     }, [workers]);
+
+    const [gallery, setgallery] = useState("");
+
+    useEffect(() => {
+
+        if (gallery.length === 0) {
+            portfolio()
+                .then(
+                    response => {
+                        setgallery(response.data.data)
+                    }
+                )
+                .catch(error => console.log(error))
+        } else {
+            console.log(gallery)
+        }
+    }, [gallery]);
 
     const functionHandler = (e) => {
         setAppointment((prevState) => ({
@@ -80,7 +97,6 @@ export const CreateAppointment = () => {
             };
             createAppointment(appointmentsWithNumber, rdxToken)
                 .then((response) => {
-                    console.log(response.data);
                     const { message } = response.data;
                     setMessage(message);
                     if (message == "appointment created succesfully") {
@@ -92,6 +108,8 @@ export const CreateAppointment = () => {
                 .catch(error => {
                     console.log(error);
                 });
+        } else {
+            setMessage("all fields are required")
         }
     };
 
@@ -115,7 +133,7 @@ export const CreateAppointment = () => {
                     }
                 />
                 <div className='errorMsg'>{appointmentError.shiftError}</div>
-                
+
                 {
                     workers.length > 0 &&
                     <select name="email" onChange={functionHandler}>
@@ -131,18 +149,22 @@ export const CreateAppointment = () => {
                         }
                     </select>
                 }
-                <div className='errorMsg'>{appointmentError.emailError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"number"}
-                    name={"portfolio_id"}
-                    placeholder={"1"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
+
+                {
+                    gallery.length > 0 &&
+                    <select name="portfolio_id" onChange={functionHandler}>
+                        <option value="">Select a service</option>
+                        {gallery.map(service => (
+                            <option key={service.id} value={service.id}>
+                                {service.name}
+                            </option>
+                        ))}
+                    </select>
+                }
+
                 <div className='errorMsg'>{appointmentError.portfolio_idError}</div>
                 <div className='buttonSubmit' onClick={Create}>Create Appointment</div>
-                <p>{message}</p>
+                <div>{message}</div>
             </div>
         </div>
     )
