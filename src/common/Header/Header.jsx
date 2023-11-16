@@ -33,44 +33,46 @@ export const Header = () => {
     };
 
     return (
-        <div className='button-container'>
-            <LinkButton
-                classButton={"linkButtonDesign"}
-                path={"/"}
-                title={"Home"}
-            />
-            <LinkButton
-                classButton={"linkButtonDesign"}
-                path={"/workers"}
-                title={"Workers"}
-            />
-            <LinkButton
-                classButton={"linkButtonDesign"}
-                path={"/portfolio"}
-                title={"Portfolio"}
-            />
-            {
-                rdxToken
-                    ? (
-                        <>
-                            <LinkButton
-                                classButton={"linkButtonDesign"}
-                                path={"/profile"}
-                                title={"Profile"}
-                            />
-                            <LinkButton
-                                classButton={"linkButtonDesign"}
-                                path={"/appointments"}
-                                title={"Appointments"}
-                            />
-                            <div onClick={logOutMe}>
+        <div className='header'>
+            <div className='div-image-header'><img className="img-logo" src="../../../img/noland-logo2.png" alt="" /></div>
+            <div className='button-container'>
+                <LinkButton
+                    classButton={"linkButtonDesign"}
+                    path={"/"}
+                    title={"Home"}
+                />
+                <LinkButton
+                    classButton={"linkButtonDesign"}
+                    path={"/workers"}
+                    title={"Workers"}
+                />
+                <LinkButton
+                    classButton={"linkButtonDesign"}
+                    path={"/portfolio"}
+                    title={"Portfolio"}
+                />
+                {
+                    rdxToken
+                        ? (
+                            <>
                                 <LinkButton
                                     classButton={"linkButtonDesign"}
-                                    path={"/"}
-                                    title={"log out"} />
-                            </div>
-                            {
-                                decodedToken && decodedToken.role === "super_admin" &&
+                                    path={"/profile"}
+                                    title={"Profile"}
+                                />
+                                <LinkButton
+                                    classButton={"linkButtonDesign"}
+                                    path={"/appointments"}
+                                    title={"Appointments"}
+                                />
+                                <div onClick={logOutMe}>
+                                    <LinkButton
+                                        classButton={"linkButtonDesign"}
+                                        path={"/"}
+                                        title={"log out"} />
+                                </div>
+                                {
+                                    decodedToken && decodedToken.role === "super_admin" &&
                                     (
                                         <>
                                             <LinkButton
@@ -84,25 +86,26 @@ export const Header = () => {
                                                 title={"All Appointments"}
                                             />
                                         </>
-                                    ) 
-                            }
-                        </>
-                    )
-                    : (
-                        <>
-                            <LinkButton
-                                classButton={"linkButtonDesign"}
-                                path={"/login"}
-                                title={"Login"}
-                            />
-                            <LinkButton
-                                classButton={"linkButtonDesign"}
-                                path={"/register"}
-                                title={"Register"}
-                            />
-                        </>
-                    )
-            }
+                                    )
+                                }
+                            </>
+                        )
+                        : (
+                            <>
+                                <LinkButton
+                                    classButton={"linkButtonDesign"}
+                                    path={"/login"}
+                                    title={"Login"}
+                                />
+                                <LinkButton
+                                    classButton={"linkButtonDesign"}
+                                    path={"/register"}
+                                    title={"Register"}
+                                />
+                            </>
+                        )
+                }
+            </div>
         </div>
     )
 }

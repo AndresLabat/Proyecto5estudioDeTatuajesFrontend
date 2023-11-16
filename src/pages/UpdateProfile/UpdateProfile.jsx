@@ -73,7 +73,7 @@ export const UpdateProfile = () => {
                     if (!error) {
                         setTimeout(() => {
                             navigate("/profile");
-                        }, 2500)
+                        }, 1000)
                     }
                 })
                 .catch(error => {

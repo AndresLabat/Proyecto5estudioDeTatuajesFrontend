@@ -65,7 +65,7 @@ export const Login = () => {
                         dispatch(login(token))
                         setTimeout(() => {
                             navigate("/profile");
-                        }, 2500)
+                        }, 1000)
                     }
                 })
                 .catch(error => {

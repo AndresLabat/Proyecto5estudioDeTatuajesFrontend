@@ -76,7 +76,7 @@ export const Register = () => {
                     if (error.target.value !== ""){
                         setTimeout(() => {
                             navigate("/login");
-                        }, 2500)
+                        }, 1000)
                     }
                 })
                 .catch(error => {

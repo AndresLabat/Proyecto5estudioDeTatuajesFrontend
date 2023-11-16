@@ -72,7 +72,7 @@ export const CreateAppointment = () => {
                     if (message == "appointment created succesfully") {
                         setTimeout(() => {
                             navigate("/appointments");
-                        }, 2500)
+                        }, 1000)
                     }
                 })
                 .catch(error => {
