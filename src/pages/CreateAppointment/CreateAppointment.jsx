@@ -162,7 +162,6 @@ export const CreateAppointment = () => {
                     </select>
                 }
 
-                <div className='errorMsg'>{appointmentError.portfolio_idError}</div>
                 <div className='buttonSubmit' onClick={Create}>Create Appointment</div>
                 <div>{message}</div>
             </div>

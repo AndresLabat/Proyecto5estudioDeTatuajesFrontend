@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/validators";
 import ShiftToggle from "../../common/ShiftToggle/ShiftToggle";
-import { updateAppointment } from "../../services/apiCalls";
+import { getWorkers, portfolio, updateAppointment } from "../../services/apiCalls";
 
 //Rdx
 import { useSelector } from "react-redux";
@@ -41,14 +41,46 @@ export const UpdateAppointment = () => {
         }
     }, [])
 
-    const [message, setMessage] = useState("");
-
     const functionHandler = (e) => {
         setAppointment((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value
         }));
     };
+
+    const [message, setMessage] = useState("");
+    const [workers, setWorkers] = useState([]);
+
+    useEffect(() => {
+        if (workers.length === 0) {
+            getWorkers()
+                .then(
+                    results => {
+                        setWorkers(results.data.data)
+                    }
+                )
+                .catch(error => console.log(error))
+        } else {
+            console.log("artists value ", workers)
+        }
+    }, [workers]);
+
+    const [gallery, setgallery] = useState("");
+
+    useEffect(() => {
+
+        if (gallery.length === 0) {
+            portfolio()
+                .then(
+                    response => {
+                        setgallery(response.data.data)
+                    }
+                )
+                .catch(error => console.log(error))
+        } else {
+            console.log(gallery)
+        }
+    }, [gallery]);
 
     const errorCheck = (e) => {
 
@@ -88,6 +120,8 @@ export const UpdateAppointment = () => {
                 .catch(error => {
                     console.log(error);
                 });
+        } else {
+            setMessage("all fields are required")
         }
     };
 
@@ -111,24 +145,35 @@ export const UpdateAppointment = () => {
                     }
                 />
                 <div className='errorMsg'>{appointmentError.shiftError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"mail"}
-                    name={"email"}
-                    placeholder={"user@gmail.com"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
-                <div className='errorMsg'>{appointmentError.emailError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"number"}
-                    name={"portfolioId"}
-                    placeholder={"1"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
-                <div className='errorMsg'>{appointmentError.portfolioIdError}</div>
+
+                {
+                    workers.length > 0 &&
+                    <select name="email" onChange={functionHandler}>
+                        <option>Select a worker</option>
+                        {
+                            workers.map(
+                                worker => {
+                                    return (
+                                        <option key={worker.id}>{worker.email}</option>
+                                    )
+                                }
+                            )
+                        }
+                    </select>
+                }
+
+                {
+                    gallery.length > 0 &&
+                    <select name="portfolioId" onChange={functionHandler}>
+                        <option value="">Select a service</option>
+                        {gallery.map(service => (
+                            <option key={service.id} value={service.id}>
+                                {service.name}
+                            </option>
+                        ))}
+                    </select>
+                }
+
                 <div className='buttonSubmit' onClick={Update}>Update Appointment</div>
                 <p>{message}</p>
             </div>

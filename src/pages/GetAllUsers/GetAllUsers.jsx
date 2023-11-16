@@ -4,6 +4,7 @@ import { CardUser } from "../../common/CardUser/CardUser";
 import { allUsers } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import { PaginationButton } from "../../common/PaginationButton/PaginationButton";
 
 //Rdx
 import { useSelector } from "react-redux";
@@ -15,18 +16,20 @@ export const GetAllUsers = () => {
     const navigate = useNavigate();
 
     const [users, setUsers] = useState([])
-    const [flag, setflag] = useState(false)
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
         if (rdxToken) {
             const decoded = jwtDecode(rdxToken);
             if (decoded.role == "super_admin") {
-                allUsers(rdxToken)
+                const pageString = page.toString()
+                allUsers(rdxToken, pageString)
                     .then(
                         user => {
-                            if (flag == false) {
+                            if (Array.isArray(user.data.data)){
                                 setUsers(user.data.data)
-                                setflag(true)
+                            } else{
+                                setPage(page-1)
                             }
                         })
                     .catch(error => console.log(error))
@@ -36,10 +39,31 @@ export const GetAllUsers = () => {
         } else {
             navigate("/");
         }
-    }, [users])
+    }, [page])
+
+    const changePageUp = () =>{
+        setPage(page+1)
+    }
+
+    const changePageDown = () =>{
+        if(page >= 2){
+            setPage(page-1)
+        }
+    }
 
     return (
         <div className="users-body">
+            <PaginationButton 
+                classPagination={"next"}
+                text={"Next"}
+                changePagination={()=>changePageUp()}
+            />
+            <PaginationButton 
+                classPagination={"previus"}
+                text={"Previus"}
+                changePagination={()=>changePageDown()}
+            />
+        
             {
                 users.length > 0
                     ? (<div className='card-user'>
