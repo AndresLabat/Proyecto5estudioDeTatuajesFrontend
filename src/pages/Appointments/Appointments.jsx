@@ -42,10 +42,11 @@ export const Appointments = () => {
         dispatch(appointmentId(argumento))
     }
 
-    const deleteAppointments = (body, token) => {
-        deleteAppointment(body, token)
-        .then(response =>{
+    const deleteAppointments = (id, token) => {
+        deleteAppointment(id, token)
+        .then(response => {
             console.log(response.data.message);
+            setAppointments(prevAppointments => prevAppointments.filter(app => app.id !== id));
         } )
         .catch(error => console.log(error))
     }

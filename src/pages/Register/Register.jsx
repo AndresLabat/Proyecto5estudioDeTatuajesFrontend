@@ -73,7 +73,7 @@ export const Register = () => {
                     console.log(response.data);
                     const {message} = response.data;
                     setMessage(message);
-                    if (error.target.value !== ""){
+                    if (message == "user registered succesfully"){
                         setTimeout(() => {
                             navigate("/login");
                         }, 1000)
