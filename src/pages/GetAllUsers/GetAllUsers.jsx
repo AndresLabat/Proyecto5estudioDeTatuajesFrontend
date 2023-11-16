@@ -28,7 +28,7 @@ export const GetAllUsers = () => {
                         user => {
                             if (Array.isArray(user.data.data)){
                                 setUsers(user.data.data)
-                            } else{
+                            } else {
                                 setPage(page-1)
                             }
                         })
@@ -53,15 +53,15 @@ export const GetAllUsers = () => {
 
     return (
         <div className="users-body">
-            <PaginationButton 
-                classPagination={"next"}
-                text={"Next"}
-                changePagination={()=>changePageUp()}
-            />
-            <PaginationButton 
+            <PaginationButton
                 classPagination={"previus"}
                 text={"Previus"}
                 changePagination={()=>changePageDown()}
+            />
+            <PaginationButton
+                classPagination={"next"}
+                text={"Next"}
+                changePagination={()=>changePageUp()}
             />
         
             {
