@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./CreateAppointment.css"
-import { createAppointment } from "../../services/apiCalls";
+import { createAppointment, getWorkers } from "../../services/apiCalls";
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/validators";
 import ShiftToggle from "../../common/ShiftToggle/ShiftToggle";
@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
 
 export const CreateAppointment = () => {
-
     const rdxToken = useSelector(selectToken);
     const navigate = useNavigate();
 
@@ -36,6 +35,21 @@ export const CreateAppointment = () => {
     }, []);
 
     const [message, setMessage] = useState("");
+    const [workers, setWorkers] = useState([]);
+
+    useEffect(() => {
+        if (workers.length === 0) {
+            getWorkers()
+                .then(
+                    results => {
+                        setWorkers(results.data.data)
+                    }
+                )
+                .catch(error => console.log(error))
+        } else {
+            console.log("artists vale...", workers)
+        }
+    }, [workers]);
 
     const functionHandler = (e) => {
         setAppointment((prevState) => ({
@@ -78,7 +92,6 @@ export const CreateAppointment = () => {
                 .catch(error => {
                     console.log(error);
                 });
-
         }
     };
 
@@ -102,14 +115,22 @@ export const CreateAppointment = () => {
                     }
                 />
                 <div className='errorMsg'>{appointmentError.shiftError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"mail"}
-                    name={"email"}
-                    placeholder={"user@gmail.com"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
+                
+                {
+                    workers.length > 0 &&
+                    <select name="email" onChange={functionHandler}>
+                        <option>Select a worker</option>
+                        {
+                            workers.map(
+                                worker => {
+                                    return (
+                                        <option key={worker.id}>{worker.email}</option>
+                                    )
+                                }
+                            )
+                        }
+                    </select>
+                }
                 <div className='errorMsg'>{appointmentError.emailError}</div>
                 <CustomInput
                     design={"inputDesign"}
