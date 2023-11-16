@@ -50,14 +50,23 @@
   /* Style the back side */
   .flip-card-back {
     background-color: #736c4c;
-    color: white;
+    color: rgb(206, 202, 202);;
     transform: rotateY(180deg);
   }
 
-  .name, .email, .phone_number{
-    font-size: 1.2em;
+  .email, .phone_number, .is_active, .role_id{
+    font-size: 1.1em;
     font-family: 'Dancing Script', cursive;
     font-family: 'Fredericka the Great', serif;
-    margin: 1.5em;
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  .name{
+    font-size: 2em;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fredericka the Great', serif;
+    margin-top: 0.4em;
     text-shadow: 2px 2px 2px black;
   }

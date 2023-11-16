@@ -26,10 +26,10 @@ export const GetAllUsers = () => {
                 allUsers(rdxToken, pageString)
                     .then(
                         user => {
-                            if (Array.isArray(user.data.data)){
+                            if (Array.isArray(user.data.data)) {
                                 setUsers(user.data.data)
                             } else {
-                                setPage(page-1)
+                                setPage(page - 1)
                             }
                         })
                     .catch(error => console.log(error))
@@ -41,29 +41,33 @@ export const GetAllUsers = () => {
         }
     }, [page])
 
-    const changePageUp = () =>{
-        setPage(page+1)
+    const changePageUp = () => {
+        setPage(page + 1)
     }
 
-    const changePageDown = () =>{
-        if(page >= 2){
-            setPage(page-1)
+    const changePageDown = () => {
+        if (page >= 2) {
+            setPage(page - 1)
         }
     }
 
     return (
         <div className="users-body">
-            <PaginationButton
-                classPagination={"previus"}
-                text={"Previus"}
-                changePagination={()=>changePageDown()}
-            />
-            <PaginationButton
-                classPagination={"next"}
-                text={"Next"}
-                changePagination={()=>changePageUp()}
-            />
-        
+            <div className="background"></div>
+            <div className="pagination">
+                <PaginationButton
+                    classPagination={"previus"}
+                    text={"Previus"}
+                    changePagination={() => changePageDown()}
+                />
+                <div>All Users by Super Admin</div>
+                <PaginationButton
+                    classPagination={"next"}
+                    text={"Next"}
+                    changePagination={() => changePageUp()}
+                />
+            </div>
+
             {
                 users.length > 0
                     ? (<div className='card-user'>

@@ -14,10 +14,6 @@ export const getWorkers = async () => {
   return await axios.get(`${base_URL}user/allWorkers?skip=12&page=1`);
 }
 
-export const getWorkersHome = async () => {
-  return await axios.get(`${base_URL}user/allWorkers?skip=6&page=1`);
-}
-
 export const profileUser = (token) => {
   return axios.get(`${base_URL}user/profile`, {
     headers: {
@@ -78,8 +74,12 @@ export const portfolio = async () => {
   return await axios.get(`${base_URL}portfolio/get?skip=12&page=1`);
 }
 
-export const portfolioHome = async () => {
-  return await axios.get(`${base_URL}portfolio/get?skip=6&page=1`);
+export const portfolioHome = async (page) => {
+  return await axios.get(`${base_URL}portfolio/get?skip=6&page=${page}`);
+}
+
+export const getWorkersHome = async (page) => {
+  return await axios.get(`${base_URL}user/allWorkers?skip=6&page=${page}`);
 }
 
 export const deleteAppointment = async (id, token) => {

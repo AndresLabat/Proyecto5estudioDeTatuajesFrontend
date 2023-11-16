@@ -3,45 +3,83 @@ import "./Home.css"
 import { getWorkersHome, portfolioHome } from "../../services/apiCalls";
 import { CardUser } from "../../common/CardUser/CardUser";
 import { CardPortfolio } from "../../common/CardPortfolio/CardPortfolio";
+import { PaginationButton } from "../../common/PaginationButton/PaginationButton";
 
 export const Home = () => {
 
     const [workers, setWorkers] = useState([])
-    const [flag, setflag] = useState(false)
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
-        getWorkersHome()
+        const pageString = page.toString()
+        getWorkersHome(pageString)
             .then(
                 worker => {
-                    if (flag == false) {
+                    if (Array.isArray(worker.data.data)) {
                         setWorkers(worker.data.data)
-                        setflag(true)
+                    } else {
+                        setPage(page - 1)
                     }
                 })
             .catch(error => console.log(error))
-    }, [workers])
+    }, [page])
 
     const [allPortfolio, setAllPortfolio] = useState([])
-    const [flags, setflags] = useState(false)
+    const [pages, setPages] = useState(1)
 
     useEffect(() => {
-        portfolioHome()
+        const pagesString = pages.toString()
+        portfolioHome(pagesString)
             .then(
                 product => {
-                    if (flag == false) {
+                    if (product.data.data.length != 0) {
                         setAllPortfolio(product.data.data)
-                        setflags(true)
+                        console.log(product.data.data);
+                    } else {
+                        setPages(pages - 1)
                     }
                 })
             .catch(error => console.log(error))
-    }, [allPortfolio])
+    }, [pages])
+
+    const changePageUpWorkers = () => {
+        setPage(page + 1)
+    }
+
+    const changePageDownWorkers = () => {
+        if (page >= 2) {
+            setPage(page - 1)
+        }
+    }
+
+    const changePageUpPorfolio = () => {
+        setPages(pages + 1)
+    }
+
+    const changePageDownPortfolio = () => {
+        if (pages >= 2) {
+            setPages(pages - 1)
+        }
+    }
 
     return (
         <div className="container">
 
             <div className="home-body"></div>
             <div className="container-workers">
-                <div className="title-workers">Our Team of Workers</div>
+                <div className="title-workers">
+                    <PaginationButton
+                        classPagination={"previus"}
+                        text={"Previus"}
+                        changePagination={() => changePageDownWorkers()}
+                    />
+                    <div>Our Team of Workers</div>
+                    <PaginationButton
+                        classPagination={"next"}
+                        text={"Next"}
+                        changePagination={() => changePageUpWorkers()}
+                    />
+                </div>
                 <div className="workers">
                     {
                         workers.length > 0
@@ -55,6 +93,8 @@ export const Home = () => {
                                                 photo={worker.photo}
                                                 email={worker.email}
                                                 phone_number={worker.phone_number}
+                                                is_active={"Active"}
+                                                role_id={"Worker"}
                                             />
                                         )
                                     })
@@ -68,7 +108,19 @@ export const Home = () => {
             </div>
 
             <div className="container-portfolio">
-                <div className="title-portfolio">Our Top Tattoos and Piercings</div>
+                <div className="title-portfolio">
+                    <PaginationButton
+                        classPagination={"previus"}
+                        text={"Previus"}
+                        changePagination={() => changePageDownPortfolio()}
+                    />
+                    <div>Our Top Tattoos and Piercings</div>
+                    <PaginationButton
+                        classPagination={"next"}
+                        text={"Next"}
+                        changePagination={() => changePageUpPorfolio()}
+                    />
+                </div>
                 <div className="div-portfolio">
                     {
                         allPortfolio.length > 0

@@ -12,8 +12,8 @@ export const CardUser = ({ full_name, photo, email, phone_number, workerId, is_a
                     <div className="name">{full_name}</div>
                     <div className="email">{email}</div>
                     <div className="phone_number">{phone_number}</div>
-                    <div className="is_active">{is_active}</div>
                     <div className="role_id">{role_id}</div>
+                    <div className="is_active">{is_active}</div>
                 </div>
             </div>
         </div>
