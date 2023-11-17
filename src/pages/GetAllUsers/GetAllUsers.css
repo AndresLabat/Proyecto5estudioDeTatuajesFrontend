@@ -2,7 +2,8 @@
     width: 100vw;
     min-height: 90vh;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    user-select: none;
 }
 
 .background{

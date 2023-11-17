@@ -1,7 +1,67 @@
+.get-appointments-body{
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
 .get-all-appointments-body{
-    width: 100vw;
     min-height: 90vh;
-    background-color: rgb(61, 61, 61);
+    width: 100vw;
+    background-image: url('../../../img/foto\ estudio\ 3.png'); 
+    background-size: cover;
+    filter: blur(2.5px);
+}
+
+.container-get-appointments{
+    width: 100vw;
+    height: 45vh;
+    top: 25%;
+    left: 50%; 
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.title-get-all-appointments{
+    width: 100vw;
+    height: 7vh;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 1.5em;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fredericka the Great', serif;
+    background-color: #cec69b65;
+}
+
+.get-all-appointments{
+    width: 100vw;
+    height: 83vh;
+    display: flex;
+    position: absolute;
+    top: 108%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.appointments-Roster{
+    height: 84vh;
+    width: 100vw; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+ 
+}
+
+.create-button{
+    width: 12em;
+    height: 2em;
+    background-color: rgb(235, 129, 0);
+    border: 0.2em solid black;
+    border-radius: 0.7em;
+    color: black; 
 }

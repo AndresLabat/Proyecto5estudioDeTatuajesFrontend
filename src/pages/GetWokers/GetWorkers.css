@@ -1,12 +1,56 @@
 .workers-body{
-    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.all-workers-body{
     min-height: 90vh;
-    background-color: rgb(61, 61, 61);
+    width: 100vw;
+    background-image: url('../../../img/foto\ estudio\ 3.png'); 
+    background-size: cover;
+    filter: blur(2.5px);
+}
+
+.container-all-workers{
+    width: 100vw;
+    height: 45vh;
+    top: 25%;
+    left: 50%; 
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.title-all-workers{
+    width: 100vw;
+    height: 7vh;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 1.5em;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fredericka the Great', serif;
+    background-color: #cec69b65;
+}
+
+.all-workers{
+    width: 100vw;
+    height: 83vh;
+    display: flex;
+    position: absolute;
+    top: 108%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .card-worker{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

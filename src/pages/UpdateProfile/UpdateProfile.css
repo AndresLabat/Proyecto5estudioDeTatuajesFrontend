@@ -1,3 +1,7 @@
+.register-body{
+    user-select: none;
+}
+
 .update-profile-body{
     width: 100vw;
     min-height: 90vh;

@@ -1,6 +1,7 @@
 .container {
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    user-select: none;
 }
 
 .home-body {
@@ -42,7 +43,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 0.1em solid white; */
     position: absolute;
     top: 58%;
     left: 50%;

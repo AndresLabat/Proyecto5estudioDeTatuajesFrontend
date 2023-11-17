@@ -10,8 +10,8 @@ export const registerUser = async (body) => {
   return await axios.post(`${base_URL}user/register`, body);
 }
 
-export const getWorkers = async () => {
-  return await axios.get(`${base_URL}user/allWorkers?skip=12&page=1`);
+export const getWorkers = async (page) => {
+  return await axios.get(`${base_URL}user/allWorkers?skip=12&page=${page}`);
 }
 
 export const profileUser = (token) => {
@@ -30,8 +30,8 @@ export const updateUser = (body, token) => {
   });
 };
 
-export const appointmentsUser = (token) => {
-  return axios.get(`${base_URL}appointment/byUser?skip=12&page=1`, {
+export const appointmentsUser = (token, page) => {
+  return axios.get(`${base_URL}appointment/byUser?skip=4&page=${page}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -62,16 +62,16 @@ export const allUsers = (token, page) => {
   });
 };
 
-export const allAppointmens = (token) => {
-  return axios.get(`${base_URL}appointment/bySuperAdmin?skip=12&page=1`, {
+export const allAppointments = (token, page) => {
+  return axios.get(`${base_URL}appointment/bySuperAdmin?skip=4&page=${page}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
 
-export const portfolio = async () => {
-  return await axios.get(`${base_URL}portfolio/get?skip=12&page=1`);
+export const portfolio = async (page) => {
+  return await axios.get(`${base_URL}portfolio/get?skip=12&page=${page}`);
 }
 
 export const portfolioHome = async (page) => {

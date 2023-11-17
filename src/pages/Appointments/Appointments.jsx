@@ -12,6 +12,7 @@ import { appointmentId } from "../appointmentSlice";
 //Rdx lectura
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
+import { PaginationButton } from "../../common/PaginationButton/PaginationButton";
 
 export const Appointments = () => {
 
@@ -20,23 +21,25 @@ export const Appointments = () => {
     const dispatch = useDispatch();
 
     const [appointments, setAppointments] = useState([])
-    const [flag, setflag] = useState(false)
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
         if (rdxToken) {
-            appointmentsUser(rdxToken)
+            const pageString = page.toString()
+            appointmentsUser(rdxToken, pageString)
                 .then(
                     response => {
-                        if (flag == false) {
+                        if (response.data.data.length != 0) {
                             setAppointments(response.data.data);
-                            setflag(true)
+                        } else {
+                            setPage(page - 1)
                         }
                     })
                 .catch(error => console.log(error));
         } else {
             navigate("/");
         }
-    }, [appointments]);
+    }, [page]);
 
     const rdxIdAppointment = (argumento) => {
         dispatch(appointmentId(argumento))
@@ -44,51 +47,80 @@ export const Appointments = () => {
 
     const deleteAppointments = (id, token) => {
         deleteAppointment(id, token)
-        .then(response => {
-            console.log(response.data.message);
-            setAppointments(prevAppointments => prevAppointments.filter(app => app.id !== id));
-        } )
-        .catch(error => console.log(error))
+            .then(response => {
+                console.log(response.data.message);
+                setAppointments(prevAppointments => prevAppointments.filter(app => app.id !== id));
+            })
+            .catch(error => console.log(error))
+    }
+
+    const changePageUpWorkers = () => {
+        setPage(page + 1)
+    }
+
+    const changePageDownWorkers = () => {
+        if (page >= 2) {
+            setPage(page - 1)
+        }
     }
 
     return (
         <div className="appointments-body">
-            {
-                appointments
-                    ? (<div className='appointments-Roster'>
-                        <div className="create-button">
-                            <LinkButton
-                                classButton={"createAppointment"}
-                                path={"/createAppointment"}
-                                title={"Create Appointment"} />
-                        </div>
-                        <div>
-                            {
-                                appointments.map(appointment => {
-                                    return (
-                                        <CardAppointment
-                                            appointmentId={appointment.id}
-                                            nameProduct={appointment.name}
-                                            imageProduct={appointment.image}
-                                            categoryProduct={appointment.category}
-                                            priceProduct={appointment.price}
-                                            emailWorker={appointment.email}
-                                            nameWorker={appointment.full_name}
-                                            date={appointment.date}
-                                            shift={appointment.shift}
-                                            emit={() => rdxIdAppointment(appointment.id)}
-                                            action={() => deleteAppointments(appointment.id, rdxToken)}
-                                        />
-                                    )
-                                }
-                                )}
-                        </div>
-                    </div>
-                    )
-                    : (
-                        <div>Loading...</div>
-                    )
-            }
+
+            <div className="all-appointments-body"></div>
+            <div className="container-appointments">
+                <div className="title-all-appointments">
+                    <PaginationButton
+                        classPagination={"previus"}
+                        text={"Previus"}
+                        changePagination={() => changePageDownWorkers()}
+                    />
+                    <div>Your Appointments</div>
+                    <PaginationButton
+                        classPagination={"next"}
+                        text={"Next"}
+                        changePagination={() => changePageUpWorkers()}
+                    />
+                </div>
+                <div className="all-appointments">
+                    {
+                        appointments
+                            ? (<div className='appointments-Roster'>
+                                <div className="create-button">
+                                    <LinkButton
+                                        classButton={"createAppointment"}
+                                        path={"/createAppointment"}
+                                        title={"Create Appointment"} />
+                                </div>
+                                <div>
+                                    {
+                                        appointments.map(appointment => {
+                                            return (
+                                                <CardAppointment
+                                                    appointmentId={appointment.id}
+                                                    nameProduct={appointment.name}
+                                                    imageProduct={appointment.image}
+                                                    categoryProduct={appointment.category}
+                                                    priceProduct={appointment.price}
+                                                    emailWorker={appointment.email}
+                                                    nameWorker={appointment.full_name}
+                                                    date={appointment.date}
+                                                    shift={appointment.shift}
+                                                    emit={() => rdxIdAppointment(appointment.id)}
+                                                    action={() => deleteAppointments(appointment.id, rdxToken)}
+                                                />
+                                            )
+                                        }
+                                        )}
+                                </div>
+                            </div>
+                            )
+                            : (
+                                <div>Loading...</div>
+                            )
+                    }
+                </div>
+            </div>
         </div>
     )
 }

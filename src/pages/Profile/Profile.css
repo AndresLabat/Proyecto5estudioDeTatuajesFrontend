@@ -4,6 +4,7 @@
     background-color: rgb(61, 61, 61);
     display: flex;
     justify-content: center;
+    user-select: none;
 }
 
 .div-info{
