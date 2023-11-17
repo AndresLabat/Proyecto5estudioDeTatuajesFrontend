@@ -6,11 +6,11 @@ import { Body } from './pages/Body/Body';
 function App() {
   return (
     <>
-    <MantineProvider>
+      <MantineProvider>
         <Header />
         <Body />
-    </MantineProvider>
-      </>
+      </MantineProvider>
+    </>
   );
 }
 
