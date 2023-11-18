@@ -87,7 +87,7 @@ export const UpdateProfile = () => {
         <div className="register-body">
             <div className="background"></div>
             <div className="paginations">
-                <div>Update Your Profile</div>
+                <div className="responsive">Update Your Profile</div>
             </div>
             <div className="input-card-update">
                 <CustomInput

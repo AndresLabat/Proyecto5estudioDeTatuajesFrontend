@@ -74,7 +74,7 @@ export const Appointments = () => {
                         text={"Previus"}
                         changePagination={() => changePageDownWorkers()}
                     />
-                    <div>Your Appointments</div>
+                    <div  className="responsive">Your Appointments</div>
                     <PaginationButton
                         classPagination={"next"}
                         text={"Next"}

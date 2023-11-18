@@ -130,7 +130,7 @@ export const UpdateAppointment = () => {
         <div className="update-appointment-body">
             <div className="background"></div>
             <div className="pagination-update-appointment">
-                <div>Update Appointment</div>
+                <div className="responsive">Update Appointment</div>
             </div>
             <div className="input-card-update-appointment">
             {

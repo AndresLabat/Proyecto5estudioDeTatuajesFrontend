@@ -44,7 +44,7 @@ export const Portfolio = () => {
                         text={"Previus"}
                         changePagination={() => changePageDownWorkers()}
                     />
-                    <div>Our Tattoos and Piercings</div>
+                    <div className="responsive">Our Tattoos and Piercings</div>
                     <PaginationButton
                         classPagination={"next"}
                         text={"Next"}

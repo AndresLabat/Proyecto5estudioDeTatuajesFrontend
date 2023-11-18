@@ -42,7 +42,7 @@ export const Profile = () => {
         <div className="profile-body">
             <div className="background"></div>
             <div className="pagination">
-                <div>Your Profile</div>
+                <div className="responsive">Your Profile</div>
             </div>
             {
                 user

@@ -108,7 +108,7 @@ export const Register = () => {
         <div className="register-body">
             <div className="background"></div>
             <div className="pagination-register">
-                <div>Register</div>
+                <div className="responsive">Register</div>
             </div>
             <div className="input-card-register">
                 <CustomInput

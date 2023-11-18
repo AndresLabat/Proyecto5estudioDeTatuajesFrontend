@@ -118,7 +118,7 @@ export const CreateAppointment = () => {
         <div className="create-appointment-body">
             <div className="background"></div>
             <div className="pagination-create-appointment">
-                <div>Create Appointment</div>
+                <div className="responsive">Create Appointment</div>
             </div>
             <div className="input-card-create-appointment">
                 {

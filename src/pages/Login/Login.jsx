@@ -79,7 +79,7 @@ export const Login = () => {
         <div className="login-body">
             <div className="background"></div>
             <div className="pagination-login">
-                <div>Login</div>
+                <div className="responsive">Login</div>
             </div>
             <div className="input-card-login">
                 <CustomInput

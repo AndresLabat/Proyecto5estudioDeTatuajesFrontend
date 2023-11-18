@@ -60,7 +60,7 @@ export const GetAllUsers = () => {
                     text={"Previus"}
                     changePagination={() => changePageDown()}
                 />
-                <div>Super Admin's Users</div>
+                <div className="responsive">Super Admin's Users</div>
                 <PaginationButton
                     classPagination={"next"}
                     text={"Next"}

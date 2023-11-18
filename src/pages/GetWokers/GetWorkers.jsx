@@ -44,7 +44,7 @@ export const GetWorkers = () => {
                         text={"Previus"}
                         changePagination={() => changePageDownWorkers()}
                     />
-                    <div>Our Team of Workers</div>
+                    <div className="responsive">Our Team of Workers</div>
                     <PaginationButton
                         classPagination={"next"}
                         text={"Next"}

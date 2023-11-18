@@ -34,11 +34,11 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
                     <div>{shift}</div>
                 </div>
                 <div className="service">
-                    <div>Type Service:</div>
+                    <div>Service:</div>
                     <div>{categoryProduct}</div>
                 </div>
                 <div className="nameProduct">
-                    <div>Product Name:</div>
+                    <div>Name:</div>
                     <div>{nameProduct}</div>
                 </div>
                 <div className="status">{status}</div>

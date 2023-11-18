@@ -83,7 +83,7 @@ export const Home = () => {
                         text={"Previus"}
                         changePagination={() => changePageDownWorkers()}
                     />
-                    <div>Our Team of Workers</div>
+                    <div className="responsive">Our Team of Workers</div>
                     <PaginationButton
                         classPagination={"next"}
                         text={"Next"}
@@ -124,7 +124,7 @@ export const Home = () => {
                         text={"Previus"}
                         changePagination={() => changePageDownPortfolio()}
                     />
-                    <div>Our Top Tattoos and Piercings</div>
+                    <div className="responsive">Our Top Tattoos and Piercings</div>
                     <PaginationButton
                         classPagination={"next"}
                         text={"Next"}

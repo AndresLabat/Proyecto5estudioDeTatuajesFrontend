@@ -21,6 +21,34 @@
     font-size: 0.33em;
   }
   .flip-card {
-    font-size: 1.9em;
+    font-size: 1.3em;
   }
+  .book {
+    font-size: 1.3em;
+  }
+  .div-info{
+    font-size: 2.4em;
+  }
+  .input-card-update{
+    font-size: 2.4em;
+  }
+  .input-card-login{
+    font-size: 2.4em;
+  }
+  .input-card-register{
+    font-size: 2.4em;
+  }
+  .container-image-studio{
+    font-size: 2.4em;
+  }
+  .input-card-update-appointment{
+    font-size: 2.4em;
+  }
+  .responsive{
+    font-size: 2em;
+  }
+  .img-welcome{
+    height: 100%;
+  }
+
 }
