@@ -7,10 +7,11 @@
     background-color: transparent;
     width: 13em;
     height: 13em;
-    border: 0.1em solid #f1f1f1;
+    border: 0.07em solid #f1f1f1;
     margin: 1.2em;
     perspective: 1000px;
     user-select: none;
+    border-radius: 1em;
 }
   
   /* This container is needed to position the front and back side */
@@ -35,11 +36,13 @@
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
+    border-radius: 1em;
   }
 
   .flip-image{
     width: 100%;
     background-size: cover;
+    border-radius: 1em;
   }
   
   /* Style the front side (fallback if image is missing) */
@@ -51,7 +54,7 @@
   /* Style the back side */
   .flip-card-back {
     background-color: #736c4c;
-    color: rgb(206, 202, 202);;
+    color: rgb(206, 202, 202);
     transform: rotateY(180deg);
   }
 
