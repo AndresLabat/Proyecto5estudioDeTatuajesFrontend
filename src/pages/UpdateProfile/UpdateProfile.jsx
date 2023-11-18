@@ -8,6 +8,7 @@ import { updateUser } from "../../services/apiCalls";
 //Rdx
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 export const UpdateProfile = () => {
 
@@ -125,8 +126,10 @@ export const UpdateProfile = () => {
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{credentialsError.photoError}</div>
-                <button id="btn" onClick={update}>Update</button>
-                {/* <div className='update' onClick={update}>Update</div> */}
+                <LinkButtonCard
+                    title={"Update"}
+                    action={() => update()}
+                />
 
                 <p className='errorMsg'>{message}</p>
             </div>

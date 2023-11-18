@@ -12,6 +12,7 @@ import { login } from "../userSlice";
 //Rdx
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 export const Register = () => {
 
@@ -105,9 +106,11 @@ export const Register = () => {
 
     return (
         <div className="register-body">
-
-            <div className="input-card">
-
+            <div className="background"></div>
+            <div className="pagination-register">
+                <div>Register</div>
+            </div>
+            <div className="input-card-register">
                 <CustomInput
                     design={"inputDesign"}
                     type={"name"}
@@ -153,10 +156,11 @@ export const Register = () => {
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{credentialsError.photoError}</div>
-
-                <div className='buttonSubmit' onClick={SignUp}>Sign up</div>
-
-                <p>{message}</p>
+                <LinkButtonCard
+                    title={"Sign up"}
+                    action={() => SignUp()}
+                />
+                <p className='errorMsg'>{message}</p>
             </div>
         </div>
     )

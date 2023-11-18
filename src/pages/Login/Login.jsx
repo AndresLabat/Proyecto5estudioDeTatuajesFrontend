@@ -12,6 +12,7 @@ import { login } from "../userSlice";
 //Rdx lectura
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 export const Login = () => {
 
@@ -76,7 +77,11 @@ export const Login = () => {
 
     return (
         <div className="login-body">
-            <div className="input-card">
+            <div className="background"></div>
+            <div className="pagination-login">
+                <div>Login</div>
+            </div>
+            <div className="input-card-login">
                 <CustomInput
                     design={"inputDesign"}
                     type={"email"}
@@ -95,9 +100,11 @@ export const Login = () => {
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{credentialsError.passwordError}</div>
-
-                <div className='buttonSubmit' onClick={logMe}>Log in</div>
-                <p> {message}</p>
+                <LinkButtonCard
+                    title={"Log in"}
+                    action={() => logMe()}
+                />
+                <p className='errorMsg'> {message}</p>
             </div>
         </div>
     )
