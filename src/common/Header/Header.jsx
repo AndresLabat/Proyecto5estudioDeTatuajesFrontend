@@ -69,7 +69,7 @@ export const Header = () => {
                                     <LinkButton
                                         classButton={"linkButtonDesign"}
                                         path={"/"}
-                                        title={"log out"} />
+                                        title={"Log Out"} />
                                 </div>
                                 {
                                     decodedToken && decodedToken.role === "super_admin" &&

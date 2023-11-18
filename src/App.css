@@ -10,9 +10,27 @@
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
   html {
     font-size: 0.5em;
+  }
+  .flip-card {
+    font-size: 1.3em;
+  }
+  .book {
+    font-size: 1.3em;
+  }
+  .img-welcome{
+    height: 100%;
+  }
+  .input-card-update{
+    font-size: 1.8em;
+  }
+  .input-card-login{
+    font-size: 1.8em;
+  }
+  .input-card-register{
+    font-size: 1.8em;
   }
 }
 
