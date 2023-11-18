@@ -40,20 +40,36 @@ export const Profile = () => {
 
     return (
         <div className="profile-body">
+            <div className="background"></div>
+            <div className="pagination">
+                <div>Your Profile</div>
+            </div>
+
+
+
+
+
             {
                 user
                     ? (
                         <div className="div-info">
-                            <img src={user.photo} alt="User" />
-                            <div>Name: {user.full_name}</div>
-                            <div>Email: {user.email}</div>
-                            <div>Phone number: {user.phone_number}</div>
-                            <div className='update-container'>
-                                <LinkButton
-                                    classButton={"pruebaButtom"}
-                                    path={"/updateProfile"}
-                                    title={"Update"}
-                                />
+                            <div class="card-dinamic">
+                                <div class="bg">
+                                    <div className="container-profile">
+                                        <img src={user.photo} alt="User" className="img-profile" />
+                                        <div className="profile-name">Name: {user.full_name}</div>
+                                        <div className="profile-email">Email: {user.email}</div>
+                                        <div className="profile-phone-number">Phone number: {user.phone_number}</div>
+                                    <div className='update-container'>
+                                        <LinkButton
+                                            classButton={"updateButtom"}
+                                            path={"/updateProfile"}
+                                            title={"Update"}
+                                        />
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="blob"></div>
                             </div>
                         </div>
                     )

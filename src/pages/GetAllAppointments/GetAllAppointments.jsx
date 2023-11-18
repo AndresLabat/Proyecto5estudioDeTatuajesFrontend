@@ -71,7 +71,7 @@ export const GetAllAppointments = () => {
                         text={"Previus"}
                         changePagination={() => changePageDownWorkers()}
                     />
-                    <div>All Appointments</div>
+                    <div>Super Admin's Appointments</div>
                     <PaginationButton
                         classPagination={"next"}
                         text={"Next"}
