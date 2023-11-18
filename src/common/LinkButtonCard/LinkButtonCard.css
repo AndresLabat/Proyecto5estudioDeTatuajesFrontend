@@ -10,10 +10,10 @@ button {
     user-select: none;
     margin-bottom: 0.5em;
     width: 6em;
-    height: 1.8em;
+    height: 2.3em;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:self-end;
   }
   
   #btn:hover,:focus {

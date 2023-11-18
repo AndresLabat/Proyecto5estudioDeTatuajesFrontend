@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 //Rdx
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 export const CreateAppointment = () => {
     const rdxToken = useSelector(selectToken);
@@ -114,10 +115,38 @@ export const CreateAppointment = () => {
     };
 
     return (
-        <div className="createAppointment-body">
-
-            <div className="input-card">
-
+        <div className="create-appointment-body">
+            <div className="background"></div>
+            <div className="pagination-create-appointment">
+                <div>Create Appointment</div>
+            </div>
+            <div className="input-card-create-appointment">
+                {
+                    workers.length > 0 &&
+                    <select name="email" onChange={functionHandler} className="select-custom">
+                        <option>Select a worker</option>
+                        {
+                            workers.map(
+                                worker => {
+                                    return (
+                                        <option key={worker.id}>{worker.email}</option>
+                                    )
+                                }
+                            )
+                        }
+                    </select>
+                }
+                {
+                    gallery.length > 0 &&
+                    <select name="portfolio_id" onChange={functionHandler} className="select-custom">
+                        <option value="">Select a service</option>
+                        {gallery.map(service => (
+                            <option key={service.id} value={service.id}>
+                                {service.name}
+                            </option>
+                        ))}
+                    </select>
+                }
                 <CustomInput
                     design={"inputDesign"}
                     type={"date"}
@@ -133,37 +162,11 @@ export const CreateAppointment = () => {
                     }
                 />
                 <div className='errorMsg'>{appointmentError.shiftError}</div>
-
-                {
-                    workers.length > 0 &&
-                    <select name="email" onChange={functionHandler}>
-                        <option>Select a worker</option>
-                        {
-                            workers.map(
-                                worker => {
-                                    return (
-                                        <option key={worker.id}>{worker.email}</option>
-                                    )
-                                }
-                            )
-                        }
-                    </select>
-                }
-
-                {
-                    gallery.length > 0 &&
-                    <select name="portfolio_id" onChange={functionHandler}>
-                        <option value="">Select a service</option>
-                        {gallery.map(service => (
-                            <option key={service.id} value={service.id}>
-                                {service.name}
-                            </option>
-                        ))}
-                    </select>
-                }
-
-                <div className='buttonSubmit' onClick={Create}>Create Appointment</div>
-                <div>{message}</div>
+                <LinkButtonCard
+                    title={"Create"}
+                    action={() => Create()}
+                />
+                <div className='errorMsg'>{message}</div>
             </div>
         </div>
     )

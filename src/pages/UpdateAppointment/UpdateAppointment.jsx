@@ -10,6 +10,7 @@ import { getWorkers, portfolio, updateAppointment } from "../../services/apiCall
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
 import { selectAppointmentId } from "../appointmentSlice";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 export const UpdateAppointment = () => {
 
@@ -126,29 +127,15 @@ export const UpdateAppointment = () => {
     };
 
     return (
-        <div className="createAppointment-body">
-
-            <div className="input-card">
-
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"date"}
-                    name={"date"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
-                <div className='errorMsg'>{appointmentError.dateError}</div>
-                <ShiftToggle
-                    selectedShift={appointment.shift}
-                    onShiftChange={(value) =>
-                        setAppointment((prevState) => ({ ...prevState, shift: value }))
-                    }
-                />
-                <div className='errorMsg'>{appointmentError.shiftError}</div>
-
-                {
+        <div className="update-appointment-body">
+            <div className="background"></div>
+            <div className="pagination-update-appointment">
+                <div>Update Appointment</div>
+            </div>
+            <div className="input-card-update-appointment">
+            {
                     workers.length > 0 &&
-                    <select name="email" onChange={functionHandler}>
+                    <select name="email" onChange={functionHandler} className="select-custom">
                         <option>Select a worker</option>
                         {
                             workers.map(
@@ -164,7 +151,7 @@ export const UpdateAppointment = () => {
 
                 {
                     gallery.length > 0 &&
-                    <select name="portfolioId" onChange={functionHandler}>
+                    <select name="portfolioId" onChange={functionHandler} className="select-custom">
                         <option value="">Select a service</option>
                         {gallery.map(service => (
                             <option key={service.id} value={service.id}>
@@ -173,9 +160,26 @@ export const UpdateAppointment = () => {
                         ))}
                     </select>
                 }
-
-                <div className='buttonSubmit' onClick={Update}>Update Appointment</div>
-                <p>{message}</p>
+                <CustomInput
+                    design={"inputDesign"}
+                    type={"date"}
+                    name={"date"}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{appointmentError.dateError}</div>
+                <ShiftToggle
+                    selectedShift={appointment.shift}
+                    onShiftChange={(value) =>
+                        setAppointment((prevState) => ({ ...prevState, shift: value }))
+                    }
+                />
+                <div className='errorMsg'>{appointmentError.shiftError}</div>
+                <LinkButtonCard
+                    title={"Update"}
+                    action={() => Update()}
+                />
+                <p className='errorMsg'>{message}</p>
             </div>
         </div>
     )
