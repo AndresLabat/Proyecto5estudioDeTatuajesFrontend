@@ -62,9 +62,19 @@ export const Home = () => {
         }
     }
 
+    const handleClick = () => {
+        const overlayDiv = document.querySelector('.container-image-studio');
+        if (overlayDiv) {
+            overlayDiv.style.visibility = 'hidden';
+        }
+    };
+
     return (
         <div className="container">
-
+            <div className="container-image-studio"  onClick={handleClick}>
+                <img src="../../../img/estudio home2.png" alt="home" className="img-welcome"/>
+                <img src="../../../img/noland-logo2.png" alt="noland" className="noland-logo-welcome"/>
+            </div>
             <div className="home-body"></div>
             <div className="container-workers">
                 <div className="title-workers">

@@ -43,6 +43,7 @@
     width: 100%;
     background-size: cover;
     border-radius: 1em;
+    cursor: pointer;
   }
   
   /* Style the front side (fallback if image is missing) */
