@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./GetAllAppointments.css"
 import { allAppointments } from "../../services/apiCalls";
-import { LinkButton } from "../../common/LinkButton/LinkButton";
 import { CardAppointment } from "../../common/CardAppointment/CardAppointment";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
@@ -14,6 +13,7 @@ import { appointmentId } from "../appointmentSlice";
 //Rdx lectura
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 export const GetAllAppointments = () => {
     const rdxToken = useSelector(selectToken);
@@ -82,12 +82,6 @@ export const GetAllAppointments = () => {
                     {
                         appointments.length > 0
                             ? (<div className='appointments-Roster'>
-                                <div className="create-button">
-                                    <LinkButton
-                                        classButton={"createAppointment"}
-                                        path={"/createAppointment"}
-                                        title={"Create Appointment"} />
-                                </div>
                                 <div>
                                     {
                                         appointments.map(appointment => {
@@ -116,6 +110,9 @@ export const GetAllAppointments = () => {
                                         }
                                         )}
                                 </div>
+                                <LinkButtonCard
+                                    path={"/createAppointment"}
+                                    title={"Create"} />
                             </div>
                             )
                             : (

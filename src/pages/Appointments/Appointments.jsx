@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Appointments.css"
 import { appointmentsUser, deleteAppointment } from "../../services/apiCalls";
 import { CardAppointment } from "../../common/CardAppointment/CardAppointment";
-import { LinkButton } from "../../common/LinkButton/LinkButton";
 import { useNavigate } from "react-router-dom";
+import { PaginationButton } from "../../common/PaginationButton/PaginationButton";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 //Rdx escritura
 import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
@@ -12,7 +13,6 @@ import { appointmentId } from "../appointmentSlice";
 //Rdx lectura
 import { useSelector } from "react-redux";
 import { selectToken } from "../userSlice";
-import { PaginationButton } from "../../common/PaginationButton/PaginationButton";
 
 export const Appointments = () => {
 
@@ -66,7 +66,6 @@ export const Appointments = () => {
 
     return (
         <div className="appointments-body">
-
             <div className="all-appointments-body"></div>
             <div className="container-appointments">
                 <div className="title-all-appointments">
@@ -86,12 +85,6 @@ export const Appointments = () => {
                     {
                         appointments
                             ? (<div className='appointments-Roster'>
-                                <div className="create-button">
-                                    <LinkButton
-                                        classButton={"createAppointment"}
-                                        path={"/createAppointment"}
-                                        title={"Create Appointment"} />
-                                </div>
                                 <div>
                                     {
                                         appointments.map(appointment => {
@@ -113,6 +106,9 @@ export const Appointments = () => {
                                         }
                                         )}
                                 </div>
+                                <LinkButtonCard
+                                    path={"/createAppointment"}
+                                    title={"Create"} />
                             </div>
                             )
                             : (

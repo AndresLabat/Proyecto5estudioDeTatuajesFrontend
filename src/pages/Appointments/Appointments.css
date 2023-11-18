@@ -47,23 +47,3 @@
     transform: translate(-50%, -50%);
     z-index: 2;
 }
-
-
-.appointments-Roster{
-    height: 84vh;
-    width: 100vw; 
-
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
- 
-}
-
-.create-button{
-    width: 12em;
-    height: 2em;
-    background-color: rgb(235, 129, 0);
-    border: 0.2em solid black;
-    border-radius: 0.7em;
-    color: black; 
-}
