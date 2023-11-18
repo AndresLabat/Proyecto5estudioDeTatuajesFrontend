@@ -9,6 +9,11 @@ button {
     transition: 0.7s ease;
     user-select: none;
     margin-bottom: 0.5em;
+    width: 6em;
+    height: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   #btn:hover,:focus {

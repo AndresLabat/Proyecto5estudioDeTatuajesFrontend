@@ -9,6 +9,5 @@ export const LinkButtonCard = ({ path, title }) => {
         <button id="btn" onClick={() => navigate(path)}>
             {title}
         </button>
-
     )
 }

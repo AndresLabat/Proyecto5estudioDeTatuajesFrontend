@@ -88,7 +88,7 @@ export const UpdateProfile = () => {
             <div className="paginations">
                 <div>Update Your Profile</div>
             </div>
-            <div className="input-card">
+            <div className="input-card-update">
                 <CustomInput
                     design={"inputDesign"}
                     type={"name"}
@@ -125,9 +125,10 @@ export const UpdateProfile = () => {
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{credentialsError.photoError}</div>
-                <div className='buttonSubmit' onClick={update}>Update</div>
+                <button id="btn" onClick={update}>Update</button>
+                {/* <div className='update' onClick={update}>Update</div> */}
 
-                <p>{message}</p>
+                <p className='errorMsg'>{message}</p>
             </div>
         </div>
     )
