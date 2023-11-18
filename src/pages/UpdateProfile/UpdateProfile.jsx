@@ -84,9 +84,11 @@ export const UpdateProfile = () => {
 
     return (
         <div className="register-body">
-
+            <div className="background"></div>
+            <div className="paginations">
+                <div>Update Your Profile</div>
+            </div>
             <div className="input-card">
-
                 <CustomInput
                     design={"inputDesign"}
                     type={"name"}

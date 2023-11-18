@@ -1,11 +1,45 @@
 .register-body{
+    width: 100vw;
+    min-height: 90vh;
+    position: relative;
+    overflow: hidden;
     user-select: none;
 }
 
-.update-profile-body{
+.background {
     width: 100vw;
     min-height: 90vh;
-    background-color: rgb(61, 61, 61);
+    background-image: url('../../../img/foto\ estudio\ 3.png');
+    background-size: cover;
+    filter: blur(2.5px);
+}
+
+.input-card{
+    position: absolute;
+    z-index: 2;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 16em;
+    height: 20em;
+}
+
+.paginations{
+    width: 100vw;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 1.5em;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fredericka the Great', serif;
+    background-color: #cec69b65;
+    position: absolute;
+    transform: translate(0%, -600%);
+    z-index: 2;
 }

@@ -1,0 +1,25 @@
+button {
+    font-size: 1.3em;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fredericka the Great', serif;
+    text-shadow: 1px 1px 1px rgb(116, 115, 115);
+    color: rgba(160, 154, 121, 1);
+    background-color: rgba(255, 255, 255, 0.801);
+    border: 1px solid rgba(160, 154, 121, 1);
+    transition: 0.7s ease;
+    user-select: none;
+    margin-bottom: 0.5em;
+  }
+  
+  #btn:hover,:focus {
+    color: #ffffff;
+    background: rgba(160, 154, 121, 1);
+    border: 1px solid rgba(160, 154, 121, 1);
+    text-shadow: 0 0 5px #ffffff,
+                0 0 10px #ffffff,
+                0 0 20px #ffffff;
+    box-shadow: 0 0 5px rgba(160, 154, 121, 1),
+                0 0 20px rgba(160, 154, 121, 1),
+                0 0 50px rgba(160, 154, 121, 1),
+                0 0 100px rgba(160, 154, 121, 1);
+  }

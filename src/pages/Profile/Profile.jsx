@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { profileUser } from "../../services/apiCalls";
-import { LinkButton } from "../../common/LinkButton/LinkButton";
 import { useNavigate } from "react-router-dom";
+import { LinkButtonCard } from "../../common/LinkButtonCard/LinkButtonCard";
 
 //Rdx
 import { useSelector } from "react-redux";
@@ -44,11 +44,6 @@ export const Profile = () => {
             <div className="pagination">
                 <div>Your Profile</div>
             </div>
-
-
-
-
-
             {
                 user
                     ? (
@@ -61,8 +56,7 @@ export const Profile = () => {
                                         <div className="profile-email">Email: {user.email}</div>
                                         <div className="profile-phone-number">Phone number: {user.phone_number}</div>
                                     <div className='update-container'>
-                                        <LinkButton
-                                            classButton={"updateButtom"}
+                                        <LinkButtonCard
                                             path={"/updateProfile"}
                                             title={"Update"}
                                         />
