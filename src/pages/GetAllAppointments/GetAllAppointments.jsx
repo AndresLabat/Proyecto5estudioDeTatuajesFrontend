@@ -110,9 +110,11 @@ export const GetAllAppointments = () => {
                                         }
                                         )}
                                 </div>
-                                <LinkButtonCard
-                                    path={"/createAppointment"}
-                                    title={"Create"} />
+                                <div className="margin-top">
+                                    <LinkButtonCard
+                                        path={"/createAppointment"}
+                                        title={"Create"} />
+                                </div>
                             </div>
                             )
                             : (

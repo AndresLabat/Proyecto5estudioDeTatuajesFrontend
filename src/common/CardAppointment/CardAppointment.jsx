@@ -15,29 +15,7 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
     return (
         <div className="card-appointment" key={appointmentId}>
             <div className="date-category">
-                <div>Date: </div>
-                <div className="date">{date}</div>
-                <div>Shift: </div>
-                <div className="shift">{shift}</div>
-                <div>Category Product: </div>
-                <div className="service">{categoryProduct}</div>
-                <div className="status">{status}</div>
-                <div className="client_name">{client_name} </div>
-                <div className="client_email">{client_email} </div>
-            </div>
-            <button className="button-spoiler" onClick={toggleCollapse}>
-                {collapsed ? "Details" : "Hide"}
-            </button>
-            {!collapsed && (
-                <div className="card-appointment-right">
-                    <div className="nameProduct">{nameProduct}</div>
-                    <img className="photo" src={imageProduct} alt={nameProduct} />
-                    <div className="priceProduct">{priceProduct} €</div>
-                    <div className="tattoo-artist-card-container">
-                        <div>Worker: </div>
-                        <div className="worker"> {nameWorker}</div>
-                    </div>
-                    <div className="email"> {emailWorker}</div>
+                <div className="link-button-container">
                     <LinkButton
                         classButton={"button-update-appointment"}
                         path={"/updateAppointment"}
@@ -46,11 +24,47 @@ export const CardAppointment = ({ nameProduct, imageProduct, categoryProduct, em
                         </div>}
                         emit={() => emit()}
                     />
-                    <DeleteButton 
-                        action={() => action()}
-                    />
                 </div>
-            )}
+                <div className="date">
+                    <div>Date:</div>
+                    <div>{date}</div>
+                </div>
+                <div className="shift">
+                    <div>Shift:</div>
+                    <div>{shift}</div>
+                </div>
+                <div className="service">
+                    <div>Type Service:</div>
+                    <div>{categoryProduct}</div>
+                </div>
+                <div className="nameProduct">
+                    <div>Product Name:</div>
+                    <div>{nameProduct}</div>
+                </div>
+                <div className="status">{status}</div>
+                <div className="client_name">{client_name} </div>
+                <div className="client_email">{client_email} </div>
+            </div>
+            <button onClick={toggleCollapse} className="collapsed-button">
+                {collapsed ? "Details" : "Hide"}
+            </button>
+            <div className="prueba">
+                {!collapsed && (
+                    <div className="card-appointment-right">
+                        <div className="card-appointment-flex">
+                            <img className="photo" src={imageProduct} alt={nameProduct} />
+                            <div className="direction-column">
+                                <div className="worker">{nameWorker}</div>
+                                <div className="email-worker"> {emailWorker}</div>
+                                <div className="priceProduct">{priceProduct} €</div>
+                                <DeleteButton
+                                    action={() => action()}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
