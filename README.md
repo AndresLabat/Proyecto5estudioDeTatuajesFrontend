@@ -269,6 +269,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 4. Ejecuta el comando `npm run dev` en la consola de este proyecto para levantar el servidor frontend.
 
 5. Disfruta de una página web completamente funcional, registrate, crea citas y explora el rico mundo del arte de los tatuajes.
+</details>
 
 ## Futuras Funcionalidades
 
