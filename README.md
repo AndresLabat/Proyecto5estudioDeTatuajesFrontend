@@ -37,16 +37,16 @@ Desarrollado como parte del Bootcamp de Full Stack Developer de Geekshubs Academ
   <summary>Apartados</summary>
 <ol>
     <li><a href="#objetivo">Objetivo</a></li>
-    <li><a href="#tecnologías-utilizadas">Tecnologías Utilizadas</a></li>
-    <li><a href="#diagrama-bd">Diagrama BD</a></li>
-    <li><a href="#ramas-del-repositorio">Ramas del Repositorio</a></li>
+    <li><a href="#contenido-del-proyecto">Contenido del proyecto</a></li>
+    <li><a href="#diseño-responsive">Diseño responsive</a></li>
+    <li><a href="#tecnologías-utilizadas">Tecnologías utilizadas</a></li>
+    <li><a href="#ramas-del-repositorio">Ramas del repositorio</a></li>
     <li><a href="#instrucciones-de-uso">Instrucciones de Uso</a></li>
-    <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#validadores">Validadores</a></li>
+    <li><a href="#futuras-funcionalidades">Futuras funcionalidades</a></li>
+    <li><a href="#problemas-y-soluciones">Problemas y soluciones</a></li>
     <li><a href="#futuras-funcionalidades">Futuras Funcionalidades</a></li>
-    <li><a href="#problemas-y-soluciones">Problemas y Soluciones</a></li>
     <li><a href="#deploy">Deploy</a></li>
-    <li><a href="#cómo-contribuir">Cómo Contribuir</a></li>
+    <li><a href="#cómo-contribuir">Como contribuir</a></li>
     <li><a href="#autor">Autor</a></li>
     <li><a href="#licencia">Licencia</a></li>
     <li><a href="#agradecimientos">Agradecimientos</a></li>
@@ -70,7 +70,9 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 
 ## Contenido del Proyecto
 
-🏗️ El proyecto **Estudio de Tatuajes frontend** consta de las siguientes vistas:
+<details>
+<summary>🏗️ Vistas de las que está constituida la página.</summary>
+
 
 1. **🔌Home🔌**: Página principal de bienvenida, una vez haces click en la imagen, se muestran los trabajadores y tatuajes más destacados.
 
@@ -214,15 +216,16 @@ Su contenido debía de tener como mínimo las siguientes vistas:
       <em><b>Siempre tendrá 6 colores, pero el número de intentos lo determinará el jugador</b></em>
    </div>   
 </p>
+</details>
 
-## 🎨Diseño Responsive
+## Diseño Responsive
 
-Todo el diseño del sitio web es responsive, lo que significa que se adapta a diferentes dispositivos y tamaños de pantalla gracias al uso de display flex y de media querys. Esto garantiza una experiencia de usuario óptima tanto en computadoras de escritorio como en dispositivos móviles.
+🎨 Todo el diseño del sitio web es responsive, lo que significa que se adapta a diferentes dispositivos y tamaños de pantalla gracias al uso de display flex y de media querys. Esto garantiza una experiencia de usuario óptima tanto en computadoras de escritorio como en dispositivos móviles.
 
 ## Tecnologías Utilizadas
 
 <details>
-<summary>🔧 Tecnologías</summary>
+<summary>🔧 Tecnologías.</summary>
 
 - **React**: Combinando Html y Javascript en archivos "jsx", es la tecnología principal con la que se ha creado este proyecto, permitiniendonos un diseño de una sola página con varias vistas y componentes que reaccionan a los distintos cambios de estado en tiempo real.
 <img src="https://www.svgrepo.com/show/439290/react.svg" style="max-width: 100%;" width="32">
@@ -255,7 +258,7 @@ Todo el diseño del sitio web es responsive, lo que significa que se adapta a di
 ## Instrucciones de Uso
 
 <details>
-<summary>⚙️ Instrucciones</summary>
+<summary>⚙️ Instrucciones.</summary>
 
 1. Clona este repositorio en tu máquina local usando el siguiente comando: `git clone [URL del repositorio]`.
 
@@ -276,33 +279,33 @@ Todo el diseño del sitio web es responsive, lo que significa que se adapta a di
 
 ## Problemas y Soluciones
 
-### 1. Al crear las relaciones many to many entre dos tablas fuertes sin crear las one to many de la tabla intermedia a la fuerte.
+### 1. Al crear la paginación para las diferentes vistas, no conseguía que no se pudiera cambiar de página si en la siguiente no habia contenido que mostrar.
 
-- **🚧Problema**: Al crear las relaciones many to many entre dos tablas fuertes sin crear las one to many de la tabla intermedia a la fuerte no podía con una única búsqueda acceder a toda la información que necesitaba al estar en dos tablas distintas sin una relación directa creada.
+- **🚧Problema**: Cuando cambiabas de página a la página cero o a una superior al límite dle contenido a mostrar, nada lo impedía, por lo que o lo mostraba vacío o bien daba un error.
 
-   - **💡Solución**: establecer una relación one to many de las tablas fuertes a la intermedia, de forma que ahora con el nuevo atributo puedes acceder a toda la información de la tabla en forma de array y evitas hacer más de una consulta.
+   - **💡Solución**: introducir validaciones en la respuesta de la llamada al backend, y en base a la información que recibes, se guardan esos nuevos valores en el hook o no y se muestra nuevamente la misma página.
 
 <p>
    <div align="center">
-      <img src="img README/many-to-one.jpeg" style="max-width: 100%;" width="500">
+      <img src="./img/README/paginacion.jpeg" style="max-width: 100%;" width="500">
    </div>    
    <div align="center">
-      <em><b>Aqui se ve la relación many to one de la tabla intermedia a sus dos tablas fuertes</b></em>
+      <em><b>Problemas en la limitación para cambiar de página</b></em>
    </div>   
 </p>
 
-### 2. Los endpoints contienen demasiadas líneas y demasiada lógica al tener muchos validadores.
+### 2. El responsive en las vistas que contienen appointments no permite la correcta visualización de textos.
 
-- **🚧Problema**: cada endpoint contiene toda su lógica propia y todos los validadores de los datos de entrada, por lo que tienen mucha responsabilidad y ocupan demasiadas líneas de código.
+- **🚧Problema**: Cuando vemos las vistas de appointments y all appointments en formato móvil los textos se quedan pequeños, y al ver los detalles no se reparten de manera adecuada en la pantalla.
 
-   - **💡Solución**: abstraer los validadores a un archivo independiente llamado validations.ts e importarlos en los endpoints cuando son necesarios.
+   - **💡Solución**: en el futuro trabajaré mejor las media querys de estas secciones y también voy a modificar el formato de la card que contiene la información para evitar estos comportamientos inesperados.
 
 <p>
    <div align="center">
-      <img src="img README/validations.jpeg" style="max-width: 100%;" width="500">
+      <img src="./img/README/problema-responsive.jpeg" style="max-width: 100%;" width="500">
    </div>    
    <div align="center">
-      <em><b>Cada validador contiene su lógica y es exportado para su uso en los controladores</b></em>
+      <em><b>El responsive de las citas no es fácil de leer</b></em>
    </div>   
 </p>
 
@@ -335,7 +338,7 @@ Espero que disfrutes explorando y utilizando este frontend del estudio de tatuaj
 ```  
 
 - **Nombre**: Andrés Labat Beltrán
-- **Fecha de Comienzo del Proyecto**: 26/10/2023
+- **Fecha de Comienzo del Proyecto**: 09/11/2023
 - **Email**: andreslabat89@gmail.com.
 - **Linkedin**: https://www.linkedin.com/in/andrés-labat-beltrán/.
 
