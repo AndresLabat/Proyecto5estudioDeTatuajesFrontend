@@ -284,7 +284,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 
 - **🚧Problema**: Cuando cambiabas de página a la página cero o a una superior al límite dle contenido a mostrar, nada lo impedía, por lo que o lo mostraba vacío o bien daba un error.
 
-   - **💡Solución**: introducir validaciones en la respuesta de la llamada al backend, y en base a la información que recibes, se guardan esos nuevos valores en el hook o no y se muestra nuevamente la misma página.
+   - **💡Solución**: Introducir validaciones en la respuesta de la llamada al backend, y en base a la información que recibes, se guardan esos nuevos valores en el hook o no y se muestra nuevamente la misma página.
 
 <p>
    <div align="center">
