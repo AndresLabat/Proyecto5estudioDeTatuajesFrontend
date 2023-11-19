@@ -83,7 +83,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-2. **🎮Workers🎮**: Esta vista contiene una serie de cards giratorias de los trabajadores, al poner el ratón sobre ellas, se muestra la información de dicho trabajador.
+2. **👀Workers👀**: Esta vista contiene una serie de cards giratorias de los trabajadores, al poner el ratón sobre ellas, se muestra la información de dicho trabajador.
 
 <p>
    <div align="center">
@@ -105,7 +105,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-4. **Login**: Identificarte mediante el login te permitirá poder reservar, actualizar o borrar citas.
+4. **🌠Login🌠**: Identificarte mediante el login te permitirá poder reservar, actualizar o borrar citas.
 
 <p>
    <div align="center">
@@ -116,7 +116,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-5. **Register**: Cuando te creas una cuenta por primera vez, una vez introduzcas tus datos personales automaticamente se logeara, permitiendote acceder a todas las ventajas que ello conlleva.
+5. **⭐Register⭐**: Cuando te creas una cuenta por primera vez, una vez introduzcas tus datos personales automaticamente se logeara, permitiendote acceder a todas las ventajas que ello conlleva.
 
 <p>
    <div align="center">
@@ -127,7 +127,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-6. **🚪Profile🚪**: Aquí se muestra la información del usuario previamente registrado, su foto y un acceso a poder actualizar sus datos.
+6. **🔠Profile🔠**: Aquí se muestra la información del usuario previamente registrado, su foto y un acceso a poder actualizar sus datos.
 
 <p>
    <div align="center">
@@ -139,7 +139,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 </p>
 
 
-7. **🟪Update Profile🟪**: Podremos cambiar nuestro nombre, contraseña, telefono e incluso foto desde este formulario..
+7. **🔠Update Profile🔠**: Podremos cambiar nuestro nombre, contraseña, telefono e incluso foto desde este formulario..
 
 <p>
    <div align="center">
@@ -150,7 +150,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-8. **🟪Appointments🟪**: Aparecerá un listado con todas las citas que tenga el usuario y la información relevante sobre ellas, además podra verlas en detalle pulsando en el botón "Details", actualizarla o incluso eliminarla.
+8. **🎰Appointments🎰**: Aparecerá un listado con todas las citas que tenga el usuario y la información relevante sobre ellas, además podra verlas en detalle pulsando en el botón "Details", actualizarla o incluso eliminarla.
 
 <p>
    <div align="center">
@@ -170,7 +170,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-9. **🟪Create Appointment🟪**: Podremos elegir que tatuajes y con que tatuador hacernoslo además de la fecha y el turno de dicho trabajador, pero solo si tiene disponibilidad".
+9. **🎰Create Appointment🎰**: Podremos elegir que tatuajes y con que tatuador hacernoslo además de la fecha y el turno de dicho trabajador, pero solo si tiene disponibilidad".
 
 <p>
    <div align="center">
@@ -182,7 +182,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 </p>
 
 
-10. **🟪Update Appointment🟪**: En el caso en el que necesitemos modificar los datos de una cita, podremos editar el servicio, el trabajador, le fecha y el turno, siempre y cuando haya disponibilidad.
+10. **🎰Update Appointment🎰**: En el caso en el que necesitemos modificar los datos de una cita, podremos editar el servicio, el trabajador, le fecha y el turno, siempre y cuando haya disponibilidad.
 
 <p>
    <div align="center">
@@ -193,7 +193,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-11. **🎲All Users🎲**: Solo accesible para el "super admin", se visualiza a todos los usuarios de la aplicación con cards giratorias, donde además se muestra información detallada de todos los usuarios registrados, ya sean clientes o trabajadores.
+11. **👑All Users👑**: Solo accesible para el "super admin", se visualiza a todos los usuarios de la aplicación con cards giratorias, donde además se muestra información detallada de todos los usuarios registrados, ya sean clientes o trabajadores.
 
 <p>
    <div align="center">
@@ -204,7 +204,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
-12. **👀All Appointments👀**: Esta vista solo es accesible para el "super admin", en ella se muestran todas las citas de la aplicación con todo lujo de detalles, desde quién es el cliente o el trabajador hasta información del servicio contratado.
+12. **👑All Appointments👑**: Esta vista solo es accesible para el "super admin", en ella se muestran todas las citas de la aplicación con todo lujo de detalles, desde quién es el cliente o el trabajador hasta información del servicio contratado.
 
 <p>
    <div align="center">
@@ -215,28 +215,26 @@ Su contenido debía de tener como mínimo las siguientes vistas:
    </div>   
 </p>
 
+## 🎨Diseño Responsive
+
+Todo el diseño del sitio web es responsive, lo que significa que se adapta a diferentes dispositivos y tamaños de pantalla gracias al uso de display flex y de media querys. Esto garantiza una experiencia de usuario óptima tanto en computadoras de escritorio como en dispositivos móviles.
+
 ## Tecnologías Utilizadas
 
 <details>
 <summary>🔧 Tecnologías</summary>
 
 - **React**: Combinando Html y Javascript en archivos "jsx", es la tecnología principal con la que se ha creado este proyecto, permitiniendonos un diseño de una sola página con varias vistas y componentes que reaccionan a los distintos cambios de estado en tiempo real.
-<img src="img/logos README/logo html.png" style="max-width: 100%;" width="30">
+<img src="https://www.svgrepo.com/show/439290/react.svg" style="max-width: 100%;" width="32">
 
-- **HTML**: Utilizado para estructurar la página web y crear elementos interactivos.
-<img src="img/logos README/logo html.png" style="max-width: 100%;" width="30">
+- **HTML**: Utilizado para estructurar la página web.
+<img src="https://www.svgrepo.com/show/353884/html-5.svg" style="max-width: 100%;" width="40">
 
-- **CSS**: Aplicado para dar estilo y diseño a todos los htmls.
-<img src="img/logos README/logo css.png" style="max-width: 100%;" width="40">
+- **CSS**: Aplicado para dar estilo y diseño a todo el html.
+<img src="https://www.svgrepo.com/show/452185/css-3.svg" style="max-width: 100%;" width="40">
 
 - **JavaScript**: Utilizado para controlar las interacciones y las funciones de cada elemento que lo requiera.
-<img src="img/logos README/logo Javascript.png" style="max-width: 100%;" width="40">
-
-- **Git**: Sistema de control de versiones para el seguimiento de cambios en el proyecto.
-<img src="img/logos README/logo git.png" style="max-width: 100%;" width="60">
-
-- **GitHub**: Plataforma para alojar el repositorio en línea y colaborar en el desarrollo del proyecto.
-<img src="img/logos README/logo github.png" style="max-width: 100%;" width="60">
+<img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" style="max-width: 100%;" width="36">
 
 - **Git**: Sistema de control de versiones para el seguimiento de cambios en el proyecto.
   <code><img width="10%" src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg"></code>
@@ -248,7 +246,11 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 
 ## Ramas del Repositorio
 
-🍃 Este proyecto se ha desarrollado en tres ramas. En la rama "dev" se ha desarrollado la mayor parte de la lógica y las vistas, realizando así las labores de maquetación y estilos con CSS, por otro lado en la rama "redux" se dejo de guardar la información en el local storage y en su lugar se utilizó redux, en la rama "readme" se ha creado toda la documentación del proyecto y ultimado detalles y, por último, todo este desarrollo en las diferentes ramas se ha unido a la rama principal "master".
+🍃 Este proyecto se ha desarrollado en cuatro ramas:
+- En la rama "dev" se ha desarrollado la mayor parte de la lógica y las vistas, realizando así las labores de maquetación y estilos con CSS. 
+- En la rama "redux" se dejo de guardar la información en el local storage y en su lugar se utilizó redux, 
+- En la rama "readme" se ha creado toda la documentación del proyecto y ultimado detalles
+- En la rama "master" converge todo este desarrollo en las diferentes ramas uniendolas en una rama principal.
 
 ## Instrucciones de Uso
 
@@ -307,6 +309,7 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 ## Deploy
 
 🚀 Por el momento su único uso es en local pese a tener un Github pages, en el futuro se realizará el deploy tanto de este proyecto, como de el anterior, en el que se aloja tanto al servidor como la base de datos.
+
 ## Cómo Contribuir
 
 🤝 Si deseas contribuir a este proyecto, puedes realizar un fork del repositorio en GitHub, hacer tus cambios y enviar una solicitud de extracción (pull request). Tu contribución será revisada y, si es apropiada, se fusionará con la rama principal.
@@ -342,11 +345,11 @@ Espero que disfrutes explorando y utilizando este frontend del estudio de tatuaj
 
 ## Agradecimientos
 
-👏 Agradecimentos a GeeksHubs Academy por los conocimientos que he podido adquirir estas cuatro semanas y que han hecho posible este proyecto, y a nuestros queridos profesores David Ochando y Dani Tarazona y su gran paciencia con nosotros.
+👏 Agradecimentos a GeeksHubs Academy por los conocimientos que he podido adquirir estas diez semanas y que han hecho posible este proyecto, y a nuestros queridos profesores David Ochando y Dani Tarazona y su gran paciencia con nosotros.
 
 <p>
    <div align="center">
-      <img src="img README/geekhubs-con-fondo.png" style="max-width: 100%;" width="250">
+      <img src="./img/README/geekhubs-con-fondo.png" style="max-width: 100%;" width="250">
    </div>    
 </p>
 
