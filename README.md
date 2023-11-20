@@ -240,10 +240,11 @@ Su contenido debía de tener como mínimo las siguientes vistas:
 <img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" style="max-width: 100%;" width="36">
 
 - **Git**: Sistema de control de versiones para el seguimiento de cambios en el proyecto.
-  <code><img width="10%" src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg"></code>
+<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg" style="max-width: 100%;" width="36">
 
 - **GitHub**: Plataforma para alojar el repositorio en línea y colaborar en el desarrollo del proyecto.
-    <code><img width="6%" src="https://www.svgrepo.com/show/35001/github.svg"></code>
+<img src="https://www.svgrepo.com/show/35001/github.svg" style="max-width: 100%;" width="36">
+
 
 </details>
 
