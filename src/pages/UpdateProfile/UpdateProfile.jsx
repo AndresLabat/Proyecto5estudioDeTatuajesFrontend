@@ -68,7 +68,6 @@ export const UpdateProfile = () => {
             };
             updateUser(credentialsWithNumber, rdxToken)
                 .then((response) => {
-                    console.log(response.data);
                     const { message, error } = response.data;
                     setMessage(message);
                     if (!error) {

@@ -48,7 +48,6 @@ export const Appointments = () => {
     const deleteAppointments = (id, token) => {
         deleteAppointment(id, token)
             .then(response => {
-                console.log(response.data.message);
                 setAppointments(prevAppointments => prevAppointments.filter(app => app.id !== id));
             })
             .catch(error => console.log(error))

@@ -34,7 +34,6 @@ export const Home = () => {
                 product => {
                     if (product.data.data.length != 0) {
                         setAllPortfolio(product.data.data)
-                        console.log(product.data.data);
                     } else {
                         setPages(pages - 1)
                     }

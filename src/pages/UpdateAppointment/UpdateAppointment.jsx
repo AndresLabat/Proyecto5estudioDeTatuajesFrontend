@@ -109,7 +109,6 @@ export const UpdateAppointment = () => {
             };
             updateAppointment(appointmentsWithNumber, rdxToken)
                 .then((response) => {
-                    console.log(response.data);
                     const { message } = response.data;
                     setMessage(message);
                     if (message == "appointment updated succesfully") {

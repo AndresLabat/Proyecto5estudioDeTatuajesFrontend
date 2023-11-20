@@ -80,7 +80,8 @@
     transform: translate(-50%, -50%) scale(0);
     z-index: 9999;
     opacity: 0;
-    animation: appearAnimation 2s forwards; /* Aplica la animación durante 2 segundos */
+    animation: appearAnimation 2s forwards; 
+    cursor: pointer;
 }
 
 @keyframes appearAnimation {
@@ -97,4 +98,5 @@
 .img-welcome{
     object-fit: cover;
     width: 100vw;
+    cursor: pointer;
 }
