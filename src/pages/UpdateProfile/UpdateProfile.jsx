@@ -58,9 +58,12 @@ export const UpdateProfile = () => {
     const photoDefault = (photo) => (photo === "" ? undefined : photo);
 
     const update = () => {
-        if (credentials.full_name != "" &&
+        if (
+            validatePassword(credentials.password)=="ok"&&
             credentials.password != "" &&
-            credentials.phone_number != "") {
+            credentials.full_name != "" &&
+            credentials.phone_number != ""
+            ) {
             const credentialsWithNumber = {
                 ...credentials,
                 phone_number: parseInt(credentials.phone_number, 10),
@@ -82,6 +85,34 @@ export const UpdateProfile = () => {
         }
     };
 
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{4,12}$/;
+    
+        if (!password) {
+            return {
+                success: true,
+                mensaje: 'you must insert a password'
+            };
+        } else if (typeof (password) !== "string") {
+            return {
+                success: true,
+                mensaje: 'password incorrect, you can put only strings, try again'
+            };
+        } else if (password.length > 100) {
+            return {
+                success: true,
+                mensaje: 'password too long, try to insert a shorter name, max 100 characters'
+            };
+        } else if (!passwordRegex.test(password)) {
+            return {
+                success: true,
+                mensaje: 'password incorrect, try again'
+            };
+        } else {
+            return "ok"
+        }
+    };
+
     return (
         <div className="register-body">
             <div className="background"></div>
@@ -89,41 +120,54 @@ export const UpdateProfile = () => {
                 <div className="responsive">Update Your Profile</div>
             </div>
             <div className="input-card-update">
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"name"}
-                    name={"full_name"}
-                    placeholder={"David Ochando"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
+                <div className="flex">
+                    <div className="obligation">*</div>
+                    <CustomInput
+                        design={"inputDesign"}
+                        type={"name"}
+                        name={"full_name"}
+                        placeholder={"David Ochando"}
+                        functionProp={functionHandler}
+                        functionBlur={errorCheck}
+                    />
+                </div>
                 <div className='errorMsg'>{credentialsError.full_nameError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"password"}
-                    name={"password"}
-                    placeholder={"Aa1234@"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
+
+                <div className="flex">
+                    <div className="obligation">*</div>
+                    <CustomInput
+                        design={"inputDesign"}
+                        type={"password"}
+                        name={"password"}
+                        placeholder={"Aa1234@"}
+                        functionProp={functionHandler}
+                        functionBlur={errorCheck}
+                    />
+                </div>
                 <div className='errorMsg'>{credentialsError.passwordError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"number"}
-                    name={"phone_number"}
-                    placeholder={"666666666"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
+
+                <div className="flex">
+                    <div className="obligation">*</div>
+                    <CustomInput
+                        design={"inputDesign"}
+                        type={"number"}
+                        name={"phone_number"}
+                        placeholder={"666666666"}
+                        functionProp={functionHandler}
+                        functionBlur={errorCheck}
+                    />
+                </div>
                 <div className='errorMsg'>{credentialsError.phone_numberError}</div>
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"text"}
-                    name={"photo"}
-                    placeholder={"URL photo"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
+                <div className="margin-left">
+                    <CustomInput
+                        design={"inputDesign"}
+                        type={"text"}
+                        name={"photo"}
+                        placeholder={"URL photo"}
+                        functionProp={functionHandler}
+                        functionBlur={errorCheck}
+                    />
+                </div>
                 <div className='errorMsg'>{credentialsError.photoError}</div>
                 <LinkButtonCard
                     title={"Update"}

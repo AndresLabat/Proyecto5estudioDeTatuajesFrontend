@@ -142,7 +142,7 @@ export const CreateAppointment = () => {
                         <option value="">Select a service</option>
                         {gallery.map(service => (
                             <option key={service.id} value={service.id}>
-                                {service.name}
+                                {service.name}, {service.price}€
                             </option>
                         ))}
                     </select>
